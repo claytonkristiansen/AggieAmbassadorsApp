@@ -14,9 +14,10 @@
     <% @organizations.each do |organization| %>
       <tr>
         <td><%= link_to organization.name, organization %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', delete_organization_path(organization) %></td>
+        <% if admin_signed_in? %>
+          <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+          <td><%= link_to 'Destroy', delete_organization_path(organization) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
