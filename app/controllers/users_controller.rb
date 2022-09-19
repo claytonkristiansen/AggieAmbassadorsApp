@@ -48,7 +48,12 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
+  def delete
+    @user = User.find(params[:id])
+  end
+
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|
@@ -65,6 +70,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :session_key, :account_type)
+      params.require(:user).permit(:auth_id, :position_title, :priviledged, :preferred_name)
     end
 end

@@ -1,28 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
+  <strong>Auth:</strong>
+  <%= @user.auth_id %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+  <strong>Position title:</strong>
+  <%= @user.position_title %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <strong>Priviledged:</strong>
+  <%= @user.priviledged %>
 </p>
 
 <p>
-  <strong>Session key:</strong>
-  <%= @user.session_key %>
-</p>
-
-<p>
-  <strong>Account type:</strong>
-  <%= @user.account_type %>
+  <strong>Preferred name:</strong>
+  <%= @user.preferred_name %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

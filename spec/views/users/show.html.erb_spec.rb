@@ -3,20 +3,18 @@ require 'rails_helper'
 RSpec.describe "users/show", type: :view do
   before(:each) do
     @user = assign(:user, User.create!(
-      first_name: "First Name",
-      last_name: "Last Name",
-      email: "Email",
-      session_key: "Session Key",
-      account_type: "Account Type"
+      auth_id: "Auth",
+      position_title: "Position Title",
+      priviledged: false,
+      preferred_name: "Preferred Name"
     ))
   end
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/First Name/)
-    expect(rendered).to match(/Last Name/)
-    expect(rendered).to match(/Email/)
-    expect(rendered).to match(/Session Key/)
-    expect(rendered).to match(/Account Type/)
+    expect(rendered).to match(/Auth/)
+    expect(rendered).to match(/Position Title/)
+    expect(rendered).to match(/false/)
+    expect(rendered).to match(/Preferred Name/)
   end
 end
