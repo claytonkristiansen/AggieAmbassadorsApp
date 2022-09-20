@@ -8,6 +8,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  config.web_console.whitelisted_ips = '0.0.0.0/0'
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -73,4 +75,10 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  
+    ENV['GOOGLE_OAUTH_CLIENT_ID'] = '1013459703491-on64gev22mk73fk216nc9ccvnk18pb1e.apps.googleusercontent.com'
+    ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
+
+  #AAA
 end

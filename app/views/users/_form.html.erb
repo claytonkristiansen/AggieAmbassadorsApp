@@ -12,28 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.label :auth_id %>
+    <%= form.text_field :auth_id %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.label :position_title %>
+    <%= form.text_field :position_title %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.label :priviledged %>
+    <%= form.check_box :priviledged %>
   </div>
 
   <div class="field">
-    <%= form.label :session_key %>
-    <%= form.text_field :session_key %>
-  </div>
-
-  <div class="field">
-    <%= form.label :account_type %>
-    <%= form.text_field :account_type %>
+    <%= form.label :preferred_name %>
+    <%= form.text_field :preferred_name %>
   </div>
 
   <div class="actions">
