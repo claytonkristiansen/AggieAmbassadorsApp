@@ -12,6 +12,11 @@
     </li>
     <% if admin_signed_in? %>
     <li>
+        <%= link_to 'Events', events_path %>
+    </li>
+    <% end %>
+    <% if admin_signed_in? %>
+    <li>
         <%= link_to "Sign Out", destroy_admin_session_path %>
     </li>
     <% else %>
