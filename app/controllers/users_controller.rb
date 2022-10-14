@@ -25,13 +25,9 @@ class UsersController < ApplicationController
 
         respond_to do |format|
             if @user.save
-<<<<<<< HEAD
                 format.html do
                     redirect_to(user_url(@user), notice: 'User was successfully created.')
                 end
-=======
-                format.html { redirect_to(user_url(@user), notice: 'User was successfully created.') }
->>>>>>> 9f315ecc432b1453014cf88a1b00c95a25d718a4
                 format.json { render(:show, status: :created, location: @user) }
             else
                 format.html { render(:new, status: :unprocessable_entity) }
@@ -44,13 +40,9 @@ class UsersController < ApplicationController
     def update
         respond_to do |format|
             if @user.update(user_params)
-<<<<<<< HEAD
                 format.html do
                     redirect_to(user_url(@user), notice: 'User was successfully updated.')
                 end
-=======
-                format.html { redirect_to(user_url(@user), notice: 'User was successfully updated.') }
->>>>>>> 9f315ecc432b1453014cf88a1b00c95a25d718a4
                 format.json { render(:show, status: :ok, location: @user) }
             else
                 format.html { render(:edit, status: :unprocessable_entity) }

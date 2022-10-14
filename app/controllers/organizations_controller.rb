@@ -26,15 +26,11 @@ class OrganizationsController < ApplicationController
 
         respond_to do |format|
             if @organization.save
-<<<<<<< HEAD
                 format.html do
                     redirect_to(organization_url(@organization),
                                 notice: 'Organization was successfully created.'
                                )
                 end
-=======
-                format.html { redirect_to(organization_url(@organization), notice: 'Organization was successfully created.') }
->>>>>>> 9f315ecc432b1453014cf88a1b00c95a25d718a4
                 format.json { render(:show, status: :created, location: @organization) }
             else
                 format.html { render(:new, status: :unprocessable_entity) }
@@ -47,15 +43,11 @@ class OrganizationsController < ApplicationController
     def update
         respond_to do |format|
             if @organization.update(organization_params)
-<<<<<<< HEAD
                 format.html do
                     redirect_to(organization_url(@organization),
                                 notice: 'Organization was successfully updated.'
                                )
                 end
-=======
-                format.html { redirect_to(organization_url(@organization), notice: 'Organization was successfully updated.') }
->>>>>>> 9f315ecc432b1453014cf88a1b00c95a25d718a4
                 format.json { render(:show, status: :ok, location: @organization) }
             else
                 format.html { render(:edit, status: :unprocessable_entity) }
@@ -74,13 +66,9 @@ class OrganizationsController < ApplicationController
         @organization.destroy!
 
         respond_to do |format|
-<<<<<<< HEAD
             format.html do
                 redirect_to(organizations_url, notice: 'Organization was successfully destroyed.')
             end
-=======
-            format.html { redirect_to(organizations_url, notice: 'Organization was successfully destroyed.') }
->>>>>>> 9f315ecc432b1453014cf88a1b00c95a25d718a4
             format.json { head(:no_content) }
         end
     end
@@ -94,12 +82,8 @@ class OrganizationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organization_params
-<<<<<<< HEAD
         params.require(:organization).permit(:name, :contact_name, :contact_email, :contact_phone,
                                              :contact_title
         )
-=======
-        params.require(:organization).permit(:name, :contact_name, :contact_email, :contact_phone, :contact_title)
->>>>>>> 9f315ecc432b1453014cf88a1b00c95a25d718a4
     end
 end

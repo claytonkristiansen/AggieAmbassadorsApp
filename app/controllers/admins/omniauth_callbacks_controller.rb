@@ -8,14 +8,10 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             flash[:success] = t('devise.omniauth_callbacks.success', kind: 'Google')
             sign_in_and_redirect(admin, event: :authentication)
         else
-<<<<<<< HEAD
             flash[:alert] =
                 t('devise.omniauth_callbacks.failure', kind: 'Google',
                                                        reason: "#{auth.info.email} is not authorized."
                 )
-=======
-            flash[:alert] = t('devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized.")
->>>>>>> 9f315ecc432b1453014cf88a1b00c95a25d718a4
             redirect_to(new_admin_session_path)
         end
     end
