@@ -1,3 +1,13 @@
+This website is the Aggie Ambassadors club and has many features.
+
+For whoever is the admin for the website will have control over many things such as who will be able to make an account as well as the ability to create a new organization.
+
+Method for making new users:
+# TODO once it is implemented
+
+Method for creating new organizations:
+# TODO once it is implemented
+
 
 For Clayton:
 
