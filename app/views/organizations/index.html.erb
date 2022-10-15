@@ -2,27 +2,37 @@
 
 <h1>Organizations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if @organizations.count == 0 %>
+  <p>There are no organizations in the directory.</p>
 
-  <tbody>
-    <% @organizations.each do |organization| %>
+<% else %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to organization.name, organization %></td>
-        <% if admin_signed_in? %>
-          <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-          <td><%= link_to 'Destroy', delete_organization_path(organization) %></td>
-        <% end %>
+        <th>Name</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @organizations.each do |organization| %>
+        <tr>
+          <td><%= link_to organization.name, organization %></td>
+          <% if admin_signed_in? %>
+            <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+            <td><%= link_to 'Remove', delete_organization_path(organization) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+<% end %>
 
 <br>
 
-<%= link_to 'New Organization', new_organization_path %>
+<% if admin_signed_in? %>
+  <%= link_to 'Add an organization', new_organization_path %>
+<% end %>
+
+
+

@@ -1,11 +1,15 @@
 <div Class="delete">
-    <h1>Destroy the Orgnization</h1>
     <%= form_for(@organization, :method => 'delete') do |form| %>
-        <p>Are you sure?</p>
-        <p> <%= @organization.name %></p>
+        <h2>Confirm delete</h2>
+        <p>Are you sure you want to delete the listing of this organization from the directory?</p>
+        <p style="padding-left: 20px;">Organization: <%= @organization.name %></p>
+        <p>You can't undo this action.</p>
 
         <div class="actions">
-            <%= form.submit("Delete")%>
+            <%= link_to 'Cancel', organizations_path %>
+            <br>
+            <br>
+            <%= form.submit("Delete") %>
         </div>
-    <%end%>
+    <% end %>
 </div>
