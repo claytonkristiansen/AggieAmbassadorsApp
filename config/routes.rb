@@ -5,6 +5,13 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  resources :events do
+    member do
+      get :delete
+    end
+  end
+
   resources :organizations do
     member do
       get :delete
@@ -15,5 +22,12 @@ Rails.application.routes.draw do
   devise_scope :admin do
     get 'admins/sign_in', to: 'admins/sessions#new', as: :new_admin_session
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
+  end
+
+  get 'creating_new_user', action: :new, controller: 'admins'
+  resources :admins do
+    member do
+      get :delete
+    end
   end
 end

@@ -16,6 +16,10 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         end
     end
 
+    # def is_owner
+    #     return (Admin.where(auth.info.email).first.privilege_level == 30)
+    # end
+
     protected
 
     def after_omniauth_failure_path_for(_scope)
