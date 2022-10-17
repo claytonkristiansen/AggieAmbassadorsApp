@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>User profile page</p>
+<h1><%= @admin.email %></h1>
+
+<p>
+  <strong>Name</strong>
+  <%= @admin.full_name %>
+</p>
+
+<div>
+    <h4>Attendance history</h4>
+    <p>These are the events you've attended.</p>
+</div>
+
+<div>
+    <h4>Membership requirements</h4>
+    <p>You're required to attend at least one event per year to remain a member.</p>
+</div>
+
+<div>
+    <h4>Tips</h4>
+    <p>For each event you plan to attend, don't forget to confirm via the email reminder. When you attend the event, follow instructions by your admin to confirm you're present.</p>
+</div>
+
+<% if is_owner? %>
+  <p><%= link_to 'Edit', edit_organization_path(@admin) %></p>
+  <p><%= link_to 'Destroy', delete_organization_path(@admin) %></p>
+<% end %>
