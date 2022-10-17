@@ -48,7 +48,12 @@ class EventsController < ApplicationController
   end
 
   # DELETE /events/1 or /events/1.json
+  def delete
+      @event = Event.find(params[:id])
+  end
+
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
 
     respond_to do |format|
