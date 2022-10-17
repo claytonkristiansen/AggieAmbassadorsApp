@@ -13,9 +13,9 @@
     
     <div class="field">
       <%= form.label :privilege_level %>
-      <%= form.text_field :privilege_level %>
+      <%= form.select(:privilege_level, options_for_select([['Member', 10], ['Event Creator', 20], ['Owner', 30]])) %>
     </div>
-  
+
     <div class="field">
       <%= form.label :position_title %>
       <%= form.text_field :position_title %>

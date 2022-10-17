@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
 
     def is_event_creater?
-        get_privilege == 20
+        get_privilege >= 20
     end
 
     def is_member?
