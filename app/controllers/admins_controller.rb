@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
 
     # GET /admins or /admins.json
     def index
-        if (!is_owner)
+        if (!is_owner?)
             redirect_to(new_admin_session_path, notice: "You are not authorized.")
         end
         @admins = Admin.all
