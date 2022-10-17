@@ -5,6 +5,7 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         admin = Admin.from_google(**from_google_params)
         if admin.present?
             sign_out_all_scopes
+            session[:user_email] = auth.info.email
             flash[:success] = t('devise.omniauth_callbacks.success', kind: 'Google')
             sign_in_and_redirect(admin, event: :authentication)
         else
@@ -15,10 +16,6 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             redirect_to(new_admin_session_path)
         end
     end
-
-    # def is_owner
-    #     return (Admin.where(auth.info.email).first.privilege_level == 30)
-    # end
 
     protected
 
