@@ -5,7 +5,7 @@
     <li>
         <%= link_to 'Organizations', organizations_path %>
     </li>
-    <% if admin_signed_in? %>
+    <% if is_owner %>
     <li>
         <%= link_to 'Users', admins_path %>
     </li>

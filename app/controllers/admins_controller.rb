@@ -4,9 +4,9 @@ class AdminsController < ApplicationController
 
     # GET /admins or /admins.json
     def index
-        # if (!admin_is_owner_omniauth_authorize_path)
-        #     redirect_to(new_admin_session_path, notice: "#{auth.info.email} is not authorized.")
-        # end
+        if (!is_owner)
+            redirect_to(new_admin_session_path, notice: "You are not authorized.")
+        end
         @admins = Admin.all
     end
 
