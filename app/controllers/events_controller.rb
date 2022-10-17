@@ -57,6 +57,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def sign_up
+    # puts "Sign up called"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
