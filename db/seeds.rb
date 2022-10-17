@@ -28,4 +28,4 @@ Event.create!([{ title: 'Example Event 2', event_date: '2022-10-02' }])
 Event.create!([{ title: 'Example Event 3', event_date: '2022-10-03' }])
 Event.create!([{ title: 'Example Event 4', event_date: '2022-10-04' }])
 
-AttendanceRecord.create([{ user_id: 5, event_id: 1, confirmed_attending: 1, attended: 1 }])
+AttendanceRecord.create!([{ admin_id: 5, event_id: 1, confirmed_attending: true, attended: true }])
