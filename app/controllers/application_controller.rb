@@ -34,5 +34,4 @@ class ApplicationController < ActionController::Base
         end
         return user.id
     end
-
 end
