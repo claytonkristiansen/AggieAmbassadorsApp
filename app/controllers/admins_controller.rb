@@ -4,9 +4,7 @@ class AdminsController < ApplicationController
 
     # GET /admins or /admins.json
     def index
-        if (!is_owner?)
-            redirect_to(new_admin_session_path, notice: "You are not authorized.")
-        end
+        redirect_to(new_admin_session_path, notice: 'You are not authorized.') unless is_owner?
         @admins = Admin.all
     end
 
@@ -27,14 +25,14 @@ class AdminsController < ApplicationController
     def create
         @admin = Admin.new(admin_params_new)
         @admin.privilege_level = 10
-        @admin.position_title = "Member"
+        @admin.position_title = 'Member'
 
         respond_to do |format|
             if @admin.save
                 format.html do
                     redirect_to(new_admin_session_path, notice: 'Admin was successfully created.')
                 end
-                format.json {  }
+                format.json {}
             else
                 format.html { render(:new, status: :unprocessable_entity) }
                 format.json { render(json: @admin.errors, status: :unprocessable_entity) }
@@ -49,7 +47,7 @@ class AdminsController < ApplicationController
                 format.html do
                     redirect_to(admins_url, notice: 'Admin was successfully updated.')
                 end
-                format.json { }
+                format.json {}
             else
                 format.html { render(:edit, status: :unprocessable_entity) }
                 format.json { render(json: @admin.errors, status: :unprocessable_entity) }

@@ -87,3 +87,6 @@ Rails/WhereExists:
 
 Rails/WhereNot:
   Enabled: true
+
+RSpec/InstanceVariable:
+  Enabled: false
