@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_14_192230) do
+ActiveRecord::Schema.define(version: 2022_10_17_191723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_10_14_192230) do
   end
 
   create_table "attendance_records", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "admin_id"
     t.integer "event_id"
     t.boolean "confirmed_attending"
     t.datetime "time_confirmed"

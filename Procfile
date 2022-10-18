@@ -1,1 +1,1 @@
-release: make fresh
+release: rails db:migrate

@@ -11,7 +11,9 @@ class AdminsController < ApplicationController
     end
 
     # GET /admins/1 or /admins/1.json
-    def show; end
+    def show
+        @admin = Admin.find(params[:id])
+    end
 
     # GET /create_new_user
     def new
@@ -83,6 +85,6 @@ class AdminsController < ApplicationController
     end
 
     def admin_params_edit
-        params.require(:admin).permit(:position_title, :privilege_level)
+        params.require(:admin).permit(:position_title, :privilege_level, :preferred_name, :send_emails)
     end
 end

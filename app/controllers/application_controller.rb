@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     helper_method :is_owner?
     helper_method :is_event_creater?
     helper_method :is_member?
+    helper_method :get_id
 
     def get_privilege
         user = Admin.where(email: session[:user_email]).first
@@ -24,5 +25,13 @@ class ApplicationController < ActionController::Base
 
     def is_member?
         get_privilege == 10
+    end
+
+    def get_id 
+        user = Admin.where(email: session[:user_email]).first
+        if user == nil
+            return -1
+        end
+        return user.id
     end
 end
