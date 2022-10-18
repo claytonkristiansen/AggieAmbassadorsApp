@@ -1,0 +1,41 @@
+<%= form_with(model: admin) do |form| %>
+    <% if admin.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+  
+        <ul>
+          <% admin.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if is_owner? %>
+      <div class="field">
+        <%= form.label :privilege_level %>
+        <%= form.select(:privilege_level, options_for_select([['Member', 10], ['Event Creator', 20], ['Owner', 30]])) %>
+      </div>
+
+      <div class="field">
+        <%= form.label :position_title %>
+        <%= form.text_field :position_title %>
+      </div>
+    <% end%>
+
+    <% if session[:user_email] == admin.email %>
+      <div class="field">
+        <%= form.label :preferred_name %>
+        <%= form.text_field :preferred_name%>
+      </div>
+
+      <div class="field">
+          <%= form.label :send_emails %>
+          <%= form.check_box :send_emails %>
+      </div>
+    <% end%>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>  

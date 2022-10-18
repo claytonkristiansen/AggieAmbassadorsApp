@@ -2,21 +2,28 @@
     <li>
         <%= link_to 'Aggie Ambassadors', root_path %>
     </li>
-    <% if admin_signed_in? %>
-    <li>
-        <%= link_to 'Users', users_path %>
-    </li>
-    <% end %>
     <li>
         <%= link_to 'Organizations', organizations_path %>
     </li>
+
     <% if admin_signed_in? %>
-    <li>
-        <%= link_to "Sign Out", destroy_admin_session_path %>
-    </li>
+        <% if is_owner? %>
+            <li>
+                <%= link_to 'Users', admins_path %>
+            </li>
+        <% end %>
+        <li>
+            <%= link_to 'My Profile', admin_path(id: get_id) %>
+        </li>
+        <li>
+            <%= link_to 'Events', events_path %>
+        </li>
+        <li>
+            <%= link_to "Sign Out", destroy_admin_session_path %>
+        </li>
     <% else %>
-    <li>
-        <%= link_to "Sign In", root_path %>
-    </li>
+        <li>
+            <%= link_to "Sign In", root_path %>
+        </li>
     <% end %>
 </ul>
