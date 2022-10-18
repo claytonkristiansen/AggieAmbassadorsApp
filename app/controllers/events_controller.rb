@@ -62,8 +62,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def sign_up_details
+  end
+
   def sign_up
-    # puts "Sign up called"
+    @attendance_record = AttendanceRecord.new(event_id: params[:id])
+    @attendance_record.save
+    respond_to do |format|
+      format.html { redirect_to events_url, notice: "Succefully signed up for event." }
+      format.json { head :no_content }
+    end
   end
 
   private
