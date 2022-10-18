@@ -9,10 +9,9 @@ class ApplicationController < ActionController::Base
 
     def get_privilege
         user = Admin.where(email: session[:user_email]).first
-        if user == nil
-            return -1
-        end
-        return user.privilege_level
+        return -1 if user.nil?
+
+        user.privilege_level
     end
 
     def is_owner?
@@ -27,11 +26,10 @@ class ApplicationController < ActionController::Base
         get_privilege == 10
     end
 
-    def get_id 
+    def get_id
         user = Admin.where(email: session[:user_email]).first
-        if user == nil
-            return -1
-        end
-        return user.id
+        return -1 if user.nil?
+
+        user.id
     end
 end

@@ -3,9 +3,7 @@ class AttendanceRecordsController < ApplicationController
         @attendance_record = AttendanceRecord.all
     end
 
-    def show
-
-    end
+    def show; end
 
     def new
         @attendance_record = AttendanceRecord.new
