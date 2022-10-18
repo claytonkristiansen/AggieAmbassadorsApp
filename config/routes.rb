@@ -21,8 +21,19 @@ Rails.application.routes.draw do
     member do
       get :delete
     end
+    member do
+      get :sign_up
+    end
+    member do
+      get :sign_up_details
+    end
   end
-  
+
+  resources :attendance_records do
+    member do
+      get :delete
+    end
+  end
   root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
   devise_scope :admin do
