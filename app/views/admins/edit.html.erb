@@ -1,0 +1,9 @@
+<h1>Editing User</h1>
+
+<%= render 'form_edit', admin: @admin %>
+
+<% if is_owner? %>
+    <%= link_to 'Back', admins_path %>
+<% else %>
+    <%= link_to 'Back', admin_path(id: get_id) %>
+<% end%>

@@ -1,4 +1,5 @@
-require 'rails_helper'
+
+# require 'rails_helper'
 
 # RSpec.describe "organizations/index", type: :view do
 #   before(:each) do
