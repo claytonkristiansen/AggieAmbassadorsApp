@@ -1,11 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "admin/create", type: :view do
+RSpec.describe "admin/destroy", type: :feature do
 
-  it "Edit users" do
+  it "delete users" do
     # Create
     visit "creating_new_user"
     fill_in 'admin_email', with: 'email@email.com'
+    fill_in 'admin_preferred_name', with: 'Example User'
+    click_on 'Create Admin'
+
+    visit "creating_new_user"
+    fill_in 'admin_email', with: 'email2@email.com'
     fill_in 'admin_preferred_name', with: 'Example User'
     click_on 'Create Admin'
 
@@ -18,16 +23,11 @@ RSpec.describe "admin/create", type: :view do
     click_on "Sign in with Google"
 
     visit "admins"
-    assert_text "20", count: 0
-    assert_text "Project Tester", count: 0
+    assert_text "Example User", count: 3
 
-    first(:link, "Edit").click
-    fill_in 'admin_privilege_level', with: 20
-    fill_in 'admin_position_title', with: "Project Tester"
-    click_on "Update Admin"
-
-    assert_text "20", count: 1
-    assert_text "Project Tester", count: 1
+    first(:link, "Remove").click
+    click_on "Delete"
+    assert_text "Example User", count: 2
   end
 
 end

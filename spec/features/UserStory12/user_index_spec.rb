@@ -42,7 +42,7 @@ RSpec.describe "admins/index", type: :feature do
     click_on 'Create Admin'
 
     # Sign in
-    admin = Admin.create!(email: "fakeemail@tamu.edu", full_name: "Example User", privilege_level: 30)
+    admin = Admin.create!(email: "fakeemail@tamu.edu", full_name: "Example User", privilege_level: 10)
     allow_any_instance_of(Devise::Controllers::Helpers).to receive(:admin_signed_in?).and_return(true)
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:admin]
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
