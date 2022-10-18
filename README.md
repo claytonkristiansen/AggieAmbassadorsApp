@@ -7,3 +7,9 @@ Method for making new users:
 
 Method for creating new organizations:
     For those who have access they will be able to click on the organizations tab and not only see the organizations but also create new ones with the create new organization button.
+
+# Aggie Ambassadors App
+
+#### [Link to Test Website](https://aggieambassa-test-branc-m6awge.herokuapp.com/)
+
+#### [Link to Production Website](https://aggieambassadorsapp.herokuapp.com/)
