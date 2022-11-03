@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  resources :users do
-    member do
-      get :delete
-    end
-  end
-
   resources :events do
     member do
       get :delete
@@ -22,10 +16,16 @@ Rails.application.routes.draw do
       get :delete
     end
     member do
-      get :sign_up
+      get :register
     end
     member do
-      get :sign_up_details
+      get :register_details
+    end
+    member do
+        get :unregister
+      end
+    member do
+    get :unregister_details
     end
   end
 

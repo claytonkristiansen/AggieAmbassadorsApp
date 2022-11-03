@@ -1,0 +1,104 @@
+Inspecting 80 files
+C.................................CCC...........................................
+
+Offenses:
+
+Gemfile:75:37: C: [Correctable] Layout/TrailingEmptyLines: Final newline missing.
+gem 'omniauth-rails_csrf_protection'
+                                    
+spec/features/RegistrationTests/full_register_spec.rb:16:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:16:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:16:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:17:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:17:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:17:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:18:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:18:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:18:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/full_register_spec.rb:26:1: C: [Correctable] Layout/TrailingWhitespace: Trailing whitespace detected.
+spec/features/RegistrationTests/full_register_spec.rb:41:1: C: [Correctable] Layout/TrailingWhitespace: Trailing whitespace detected.
+spec/features/RegistrationTests/register_spec.rb:16:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:16:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:16:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:17:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:17:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:17:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:18:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:18:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:18:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/register_spec.rb:26:1: C: [Correctable] Layout/TrailingWhitespace: Trailing whitespace detected.
+spec/features/RegistrationTests/unregister_spec.rb:16:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:16:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:16:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:17:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:17:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:17:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:18:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+        ^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:18:44: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+                                           ^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:18:73: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:21:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        attendance_record_1 = AttendanceRecord.create(event_id: test_event_1.id, admin_id: admin.id)
+        ^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:22:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        attendance_record_2 = AttendanceRecord.create(event_id: test_event_2.id, admin_id: admin.id)
+        ^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:23:9: C: Naming/VariableNumber: Use normalcase for variable numbers.
+        attendance_record_3 = AttendanceRecord.create(event_id: test_event_3.id, admin_id: admin.id)
+        ^^^^^^^^^^^^^^^^^^^
+spec/features/RegistrationTests/unregister_spec.rb:36:1: C: [Correctable] Layout/TrailingWhitespace: Trailing whitespace detected.
+
+80 files inspected, 35 offenses detected, 23 offenses autocorrectable
