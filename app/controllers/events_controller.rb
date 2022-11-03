@@ -68,11 +68,18 @@ class EventsController < ApplicationController
 
     # Event controller method for registering to an event (deletes entry from table)
     def register
-        @attendance_record = AttendanceRecord.new(event_id: params[:id], admin_id: get_id)
-        @attendance_record.save
-        respond_to do |format|
-            format.html { redirect_to(events_url, notice: 'Successfully registered for event.') }
-            format.json { head(:no_content) }
+        if(!AttendanceRecord.where(event_id: params[:id], admin_id: get_id).exists?)
+            @attendance_record = AttendanceRecord.new(event_id: params[:id], admin_id: get_id)
+            @attendance_record.save
+            respond_to do |format|
+                format.html { redirect_to(events_url, notice: 'Successfully registered for event.') }
+                format.json { head(:no_content) }
+            end
+        else
+            respond_to do |format|
+                format.html { redirect_to(events_url, notice: 'Failed to register for event, registration already exists') }
+                format.json { head(:no_content) }
+            end
         end
     end
 
