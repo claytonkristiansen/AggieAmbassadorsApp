@@ -63,7 +63,7 @@ class EventsController < ApplicationController
         end
     end
 
-    # Event controller method to redirect to the registration confirmation page
+    # GET Event controller method to redirect to the registration confirmation page
     def register_details; end
 
     # Event controller method for registering to an event (deletes entry from table)
@@ -76,7 +76,7 @@ class EventsController < ApplicationController
         end
     end
 
-    # Event controller method to redirect to the unregister confirmation page
+    # GET Event controller method to redirect to the unregister confirmation page
     def unregister_details; end
 
     # Event controller method for unregistering from an event (deletes entry from table)
