@@ -318,6 +318,9 @@ Naming/InclusiveLanguage: # (new in 1.18)
 Naming/PredicateName:
   Enabled: false
 
+Naming/VariableNumber:
+  Enabled: false
+
 ###########################################################
 ######################## Style ############################
 ###########################################################

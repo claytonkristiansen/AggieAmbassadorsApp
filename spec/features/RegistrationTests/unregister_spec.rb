@@ -13,9 +13,9 @@ RSpec.describe('events/', type: :feature) do
         #####################################################################################################
 
         # Creating test events
-        test_event_1 = Event.create(title: "test event 1", description: "test event 1 description")
-        test_event_2 = Event.create(title: "test event 2", description: "test event 2 description")
-        test_event_3 = Event.create(title: "test event 3", description: "test event 3 description")
+        test_event_1 = Event.create(title: 'test event 1', description: 'test event 1 description')
+        test_event_2 = Event.create(title: 'test event 2', description: 'test event 2 description')
+        test_event_3 = Event.create(title: 'test event 3', description: 'test event 3 description')
 
         # Creating attendance records to simulate the user having already signed up for events
         attendance_record_1 = AttendanceRecord.create(event_id: test_event_1.id, admin_id: admin.id)
@@ -33,7 +33,7 @@ RSpec.describe('events/', type: :feature) do
         find('tr', text: 'test event 1').click_link('Unregister')
         click_on 'Confirm'
         expect(AttendanceRecord.where(event_id: test_event_1.id, admin_id: admin.id)).not_to(exist)
-        
+
         # Testing that you can unregiser for second event
         find('tr', text: 'test event 2').click_link('Unregister')
         click_on 'Confirm'
