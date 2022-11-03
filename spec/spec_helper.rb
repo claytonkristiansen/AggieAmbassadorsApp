@@ -97,5 +97,6 @@ RSpec.configure do |config|
 end
 
 OmniAuth.config.test_mode = true
+OmniAuth.config.silence_get_warning = true
 OmniAuth.config.add_mock(:google_oauth2, {:uid => '12345', :info => {:email => 'fakeemail@tamu.edu', :full_name => "Example User"}})
 
