@@ -22,10 +22,16 @@ Rails.application.routes.draw do
       get :delete
     end
     member do
-      get :sign_up
+      get :register
     end
     member do
-      get :sign_up_details
+      get :register_details
+    end
+    member do
+        get :unregister
+      end
+    member do
+    get :unregister_details
     end
   end
 
