@@ -1,50 +1,66 @@
-<p id="notice"><%= notice %></p>
-
-<p>Organization detail page</p>
-
-<h1><%= @organization.name %></h1>
-<p>This organization is tracked by Aggie Ambassadors.</p>
-
-<br>
-
-<div>
-  <h3>Contact this organization</h3>
-
-  <p>This is the designated contact person for this organization.</p>
-
-  <p>
-    <strong>Contact name:</strong>
-    <%= @organization.contact_name %>
-  </p>
-
-  <p>
-    <strong>Contact email:</strong>
-    <%= @organization.contact_email %>
-  </p>
-
-  <p>
-    <strong>Contact phone:</strong>
-    <%= @organization.contact_phone %>
-  </p>
-
-  <p>
-    <strong>Contact title:</strong>
-    <%= @organization.contact_title %>
-  </p>
-</div>
-
-<br>
-
-<%= link_to 'Return to directory', organizations_path %>
-
-<br>
-<br>
-
-<% if is_owner? %>
-  <div>
-    <h4>Administrator actions</h4>
-    <p>Only administrators can see this section.</p>
-    <p><%= link_to "Edit this organization's information", edit_organization_path(@organization) %></p>
-    <p><%= link_to "Remove this organization from the directory", delete_organization_path(@organization) %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <section>
+        <p id="notice"><%= notice %></p>
+      </section>
+      <section class="page-info">
+        <h1><%= @organization.name %></h1>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>This organization is tracked by Aggie Ambassadors.</p>
+      </section>
+      <section class="org-contact-details">
+        <h3>Contact this Organization</h3>
+        <p>This is the designated contact person for this organization.</p>
+        <div style="margin-top:25px;">
+          <div class="row">
+            <div class="col-2">
+              <p><i class="bi bi-person-fill"></i><span>Name</span></p>
+            </div>
+            <div class="col">
+              <p><%= @organization.contact_name %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <p><i class="bi bi-tags-fill"></i><span>Title</span></p>
+            </div>
+            <div class="col">
+              <p><%= @organization.contact_title %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <p><i class="bi bi-envelope-fill"></i><span>Email</span></p>
+            </div>
+            <div class="col">
+              <p><a href="mailto:<%= @organization.contact_email %>"><%= @organization.contact_email %></a></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <p><i class="bi bi-telephone-fill"></i><span>Phone</span></p>
+            </div>
+            <div class="col">
+              <p><a href="tel:<%= @organization.contact_phone %>"><%= @organization.contact_phone %></a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <% if is_owner? %>
+        <section>
+          <h3>Administrator Actions</h3>
+          <p>Only administrators can see this section.</p>
+          <a class="btn btn-primary larger-btn" href="<%= edit_organization_path(@organization) %>" role="button">Edit this organization</a>
+          <a class="btn btn-danger larger-btn" href="<%= delete_organization_path(@organization) %>" role="button">Delete this organization</a>
+        </section>
+      <% end %>
+      <section>
+        <a class="btn btn-primary larger-btn" href="<%= organizations_path %>" role="button">Return to directory</a>
+        <p>Return to the directory to view the full list of organizations.</p>
+      </section>
+    </div>
   </div>
-<% end %>
+</div>
