@@ -1,34 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Admins</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>Email title</th>
-      <th>Preferred Name</th>
-      <th>Privilege Level</th>
-      <th>Position Title</th>
-      <th colspan="7"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admins.each do |admin| %>
-      <tr>
-        <td><%= admin.full_name %></td>
-        <td><%= admin.email %></td>
-        <td><%= admin.preferred_name %></td>
-        <td><%= admin.privilege_level %></td>
-        <td><%= admin.position_title %></td>
-        <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Remove', delete_admin_path(admin) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_admin_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <section>
+        <p id="notice"><%= notice %></p>
+      </section>
+      <section class="page-info">
+        <h1>Member List</h1>
+        <h5>This list shows all members including administrators with registered accounts.</h5>
+      </section>
+      <section class="member-list">
+        <div class="row">
+          <div class="col">
+            <% @admins.each do |admin| %>
+              <a href="<%= admin_path(admin) %>">
+                <div class="card" style="margin-bottom: 20px;">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col-md-auto">
+                        <% if admin.avatar_url == nil %>
+                          <div class="profile-img"></div>
+                        <% else %>
+                          <img class="profile-img" src="<%= admin.avatar_url %>">
+                        <% end %>
+                      </div>
+                      <div class="col">
+                        <% if admin.full_name == nil %>
+                          <h5 class="card-title my-0"><%= admin.email %></h5>
+                        <% else %>
+                          <h5 class="card-title"><%= admin.full_name %></h5>
+                          <h6 class="card-subtitle text-muted"><%= admin.email %></h6>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            <% end %>
+          </div>
+        </div>
+      </section>
+      <section>
+        <a class="btn btn-primary larger-btn" href="<%= new_admin_path %>" role="button">Add a user</a>
+        <p>Add a new user to the members list.</p>
+      </section>
+      <section>
+        <p>This page is only visible to administrators. Administrator accounts have elevated privledges and can make changes to organization, events, and member data.</p>
+      </section>
+    </div>
+  </div>
+</div>
