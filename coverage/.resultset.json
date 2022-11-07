@@ -768,7 +768,7 @@
           null
         ]
       },
-      "/csce431/AggieAmbassadorsApp/app/models/admin.rb": {
+      "/csce431/AggieAmbassadorsApp/app/models/member.rb": {
         "lines": [
           null,
           null,
@@ -2356,7 +2356,7 @@
           null
         ]
       },
-      "/csce431/AggieAmbassadorsApp/app/controllers/admins/sessions_controller.rb": {
+      "/csce431/AggieAmbassadorsApp/app/controllers/members/sessions_controller.rb": {
         "lines": [
           1,
           1,
@@ -2369,7 +2369,7 @@
           null
         ]
       },
-      "/csce431/AggieAmbassadorsApp/app/controllers/admins/omniauth_callbacks_controller.rb": {
+      "/csce431/AggieAmbassadorsApp/app/controllers/members/omniauth_callbacks_controller.rb": {
         "lines": [
           null,
           null,
@@ -2547,7 +2547,7 @@
           null
         ]
       },
-      "/csce431/AggieAmbassadorsApp/app/controllers/admins_controller.rb": {
+      "/csce431/AggieAmbassadorsApp/app/controllers/members_controller.rb": {
         "lines": [
           1,
           1,
@@ -2640,6 +2640,6 @@
         ]
       }
     },
-    "timestamp": 1667495654
+    "timestamp": 1667788359
   }
 }
