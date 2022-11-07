@@ -22,17 +22,17 @@ RSpec.describe('organizations/index', type: :view) do
     end
 
     before do
-        admin = Admin.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User')
-        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:admin_signed_in?).and_return(true))
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+        member = Member.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User')
+        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:member_signed_in?).and_return(true))
+        Rails.application.env_config['devise.mapping'] = Devise.mappings[:member]
         Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
         Rails.application.env_config['warden'] =
-            visit('admins/sign_in')
+            visit('members/sign_in')
         click_on 'Sign in with Google'
     end
 
     after do
-        visit destroy_admin_session_path
+        visit destroy_member_session_path
     end
 
     it 'renders a list of organizations' do

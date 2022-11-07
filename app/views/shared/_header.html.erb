@@ -6,20 +6,20 @@
         <%= link_to 'Organizations', organizations_path %>
     </li>
 
-    <% if admin_signed_in? %>
+    <% if member_signed_in? %>
         <% if is_owner? %>
             <li>
-                <%= link_to 'Users', admins_path %>
+                <%= link_to 'Members', members_path %>
             </li>
         <% end %>
         <li>
-            <%= link_to 'My Profile', admin_path(id: get_id) %>
+            <%= link_to 'My Profile', member_path(id: get_id) %>
         </li>
         <li>
             <%= link_to 'Events', events_path %>
         </li>
         <li>
-            <%= link_to "Sign Out", destroy_admin_session_path %>
+            <%= link_to "Sign Out", destroy_member_session_path %>
         </li>
     <% else %>
         <li>
