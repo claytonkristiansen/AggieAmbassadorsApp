@@ -8,7 +8,7 @@ RSpec.describe('members/new', type: :feature) do
         click_on 'Create Member'
 
         @member = Member.where(email: 'email@email.com', preferred_name: 'example user', send_emails: false, privilege_level: 10,
-                             position_title: 'Member'
+                               position_title: 'Member'
         ).first
 
         expect(@member).to(be_valid)
