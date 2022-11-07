@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     def index
         @events = Event.all
         # Passing list of event ids that the signed in user is registered for
-        @attendance_records_registered = AttendanceRecord.where(admin_id: get_id).to_ary.map(&:event_id)
+        @attendance_records_registered = AttendanceRecord.where(member_id: get_id).to_ary.map(&:event_id)
     end
 
     # GET /events/1 or /events/1.json
@@ -68,7 +68,7 @@ class EventsController < ApplicationController
 
     # Event controller method for registering to an event (deletes entry from table)
     def register
-        @attendance_record = AttendanceRecord.new(event_id: params[:id], admin_id: get_id)
+        @attendance_record = AttendanceRecord.new(event_id: params[:id], member_id: get_id)
         @attendance_record.save
         respond_to do |format|
             format.html { redirect_to(events_url, notice: 'Successfully registered for event.') }
@@ -79,9 +79,9 @@ class EventsController < ApplicationController
     # GET Event controller method to redirect to the unregister confirmation page
     def unregister_details; end
 
-    # Event controller method for unregistering from an event (deletes entry from table)
+    # Event controller method for unregistering from an event (deletes entry from attendance record table)
     def unregister
-        @attendance_record = AttendanceRecord.where(event_id: params[:id], admin_id: get_id).destroy_all
+        @attendance_record = AttendanceRecord.where(event_id: params[:id], member_id: get_id).destroy_all
         respond_to do |format|
             format.html { redirect_to(events_url, notice: 'Succefully unregistered for event.') }
             format.json { head(:no_content) }

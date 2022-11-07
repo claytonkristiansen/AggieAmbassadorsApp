@@ -10,27 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_191723) do
+ActiveRecord::Schema.define(version: 2022_11_07_023027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "full_name"
-    t.string "uid"
-    t.string "avatar_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "position_title"
-    t.integer "privilege_level"
-    t.string "preferred_name"
-    t.boolean "send_emails"
-    t.index ["email"], name: "index_admins_on_email", unique: true
-  end
-
   create_table "attendance_records", force: :cascade do |t|
-    t.integer "admin_id"
+    t.integer "member_id"
     t.integer "event_id"
     t.boolean "confirmed_attending"
     t.datetime "time_confirmed"
@@ -48,6 +34,20 @@ ActiveRecord::Schema.define(version: 2022_10_17_191723) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "full_name"
+    t.string "uid"
+    t.string "avatar_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "position_title"
+    t.integer "privilege_level"
+    t.string "preferred_name"
+    t.boolean "send_emails"
+    t.index ["email"], name: "index_members_on_email", unique: true
   end
 
   create_table "organizations", force: :cascade do |t|

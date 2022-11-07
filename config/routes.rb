@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  resources :users do
-    member do
-      get :delete
-    end
-  end
-
   resources :events do
     member do
       get :delete
@@ -41,15 +35,15 @@ Rails.application.routes.draw do
     end
   end
   root to: 'dashboards#show'
-  devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
-  devise_scope :admin do
-    get 'admins/sign_in', to: 'admins/sessions#new', as: :new_admin_session
-    get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
+  devise_for :members, controllers: { omniauth_callbacks: 'members/omniauth_callbacks' }
+  devise_scope :member do
+    get 'members/sign_in', to: 'members/sessions#new', as: :new_member_session
+    get 'members/sign_out', to: 'members/sessions#destroy', as: :destroy_member_session
   end
 
-  get 'creating_new_user', action: :new, controller: 'admins'
+  get 'creating_new_user', action: :new, controller: 'members'
 
-  resources :admins do
+  resources :members do
     member do
       get :delete
     end

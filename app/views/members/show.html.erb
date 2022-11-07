@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>User profile page</p>
+<h1><%= @member.email %></h1>
+
+<p>
+  <strong>Name</strong>
+  <%= @member.full_name %>
+</p>
+
+<p>
+  <strong>Preferred Name</strong>
+  <%= @member.preferred_name %>
+</p>
+
+<div>
+    <h4>Attendance history</h4>
+    <p>These are the events you've attended.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Title</th>
+      <th>Event Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% AttendanceRecord.where(member_id: @member.id, attended: true).each do |attendance_record| %> 
+      <tr>
+        <td><%= Event.where(id: attendance_record.event_id).last.title %></td>
+        <td><%= Event.where(id: attendance_record.event_id).last.event_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<div>
+    <h4>Membership requirements</h4>
+    <p>You're required to attend at least one event per year to remain a member.</p>
+    <% if AttendanceRecord.where(member_id: @member.id, attended: true).count > 0 %>
+      <p> Congratulations! You've met your membership requirement! </p>
+    <% else %>
+      <p> You have not met your membership requirement yet. </p>
+    <% end %>
+</div>
+
+<div>
+    <h4>Tips</h4>
+    <p>For each event you plan to attend, don't forget to confirm via the email reminder. When you attend the event, follow instructions by your member to confirm you're present.</p>
+</div>
+
+<p><%= link_to 'Edit', edit_member_path(@member) %></p>
+<% if is_owner? %>
+  <p><%= link_to 'Destroy', delete_member_path(@member) %></p>
+<% end %>

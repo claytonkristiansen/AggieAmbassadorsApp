@@ -1,0 +1,9 @@
+<h1>Editing Member</h1>
+
+<%= render 'form_edit', member: @member %>
+
+<% if is_owner? %>
+    <%= link_to 'Back', members_path %>
+<% else %>
+    <%= link_to 'Back', member_path(id: get_id) %>
+<% end%>
