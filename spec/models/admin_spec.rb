@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe(Admin, type: :model) do
+RSpec.describe(Member, type: :model) do
     subject do
         described_class.new(email: 'email@email')
     end

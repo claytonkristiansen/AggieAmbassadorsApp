@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe('event/edit', type: :feature) do
     it 'Edit events' do
         # Create
-        admin = Admin.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 20)
-        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:admin_signed_in?).and_return(true))
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+        member = Member.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 20)
+        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:member_signed_in?).and_return(true))
+        Rails.application.env_config['devise.mapping'] = Devise.mappings[:member]
         Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
-        visit 'admins/sign_in'
+        visit 'members/sign_in'
         click_on 'Sign in with Google'
 
         visit 'events/new'
