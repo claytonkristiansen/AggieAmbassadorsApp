@@ -1,29 +1,43 @@
-<ul>
-    <li>
-        <%= link_to 'Aggie Ambassadors', root_path %>
-    </li>
-    <li>
-        <%= link_to 'Organizations', organizations_path %>
-    </li>
-
-    <% if member_signed_in? %>
-        <% if is_owner? %>
-            <li>
-                <%= link_to 'Members', members_path %>
-            </li>
+<nav class="navbar navbar-expand-lg sticky-top bg-light" style="border: 1px solid lightgrey;">
+  <div class="container">
+    <a class="navbar-brand" href="<%= root_path %>">Aggie Ambassadors</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: space-between;">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="<%= organizations_path %>">Organizations</a></li>
+        <% if member_signed_in? %>
+          <% if is_owner? %>
+            <li class="nav-item"><a class="nav-link" href="<%= members_path %>">Members</a></li>
+          <% end %>
+          <li class="nav-item"><a class="nav-link" href="<%= events_path %>">Events</a></li>
         <% end %>
-        <li>
-            <%= link_to 'My Profile', member_path(id: get_id) %>
-        </li>
-        <li>
-            <%= link_to 'Events', events_path %>
-        </li>
-        <li>
-            <%= link_to "Sign Out", destroy_member_session_path %>
-        </li>
-    <% else %>
-        <li>
-            <%= link_to "Sign In", root_path %>
-        </li>
-    <% end %>
-</ul>
+      </ul>
+      <ul class="navbar-nav">
+        <% if member_signed_in? %>
+          <li class="nav-item">
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="<%= member.avatar_url %>" class="rounded-circle" width="36" height="36">
+              </a>
+              <ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.333333px, 45px, 0px);" data-popper-placement="bottom-end">
+                <li><a class="dropdown-item" href="<%= member_path(id: get_id) %>">My Account</a></li>
+                <li><a class="dropdown-item" href="<%= edit_member_path(id: get_id) %>">Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="<%= destroy_member_session_path %>">Sign out</a></li>
+              </ul>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= root_path %>">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary larger-btn" href="<%= root_path %>" role="button">Create account</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
