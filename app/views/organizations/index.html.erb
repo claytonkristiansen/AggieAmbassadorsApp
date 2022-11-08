@@ -1,28 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <section>
-        <p id="notice"><%= notice %></p>
-      </section>
-      <section class="page-info">
-        <h1>Organization Directory</h1>
-        <h5>These organizations are tracked by Aggie Ambassadors.</h5>
-      </section>
-      <section>
-        <% @organizations.each do |organization| %>
-          <div class="card">
-            <div class="card-body">
-              <%= link_to organization.name, organization %>
-            </div>
-          </div>
-        <% end %>
-      </section>
-      <% if is_owner? %>
+<header>
+  <div class="container text-center">
+    <div class="header-background-overlay"></div>
+    <section class="page-info page-info-invert header-subject">
+      <h1>Organization Directory</h1>
+      <h5>These organizations are tracked by Aggie Ambassadors.</h5>
+    </section>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
         <section>
-          <a class="btn btn-primary mb-3 larger-btn" href="<%= new_organization_path %>" role="button">Add an organization</a>
-          <p>Only administrators can see this action.</p>
+          <p id="notice"><%= notice %></p>
         </section>
-      <% end %>
+        <section>
+          <% @organizations.each do |organization| %>
+            <div class="card">
+              <div class="card-body">
+                <%= link_to organization.name, organization %>
+              </div>
+            </div>
+          <% end %>
+        </section>
+        <% if is_owner? %>
+          <section>
+            <a class="btn btn-primary mb-3 larger-btn" href="<%= new_organization_path %>" role="button">Add an organization</a>
+            <p>Only administrators can see this action.</p>
+          </section>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+</main>
