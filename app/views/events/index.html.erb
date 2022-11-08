@@ -12,10 +12,34 @@
         <% @events.each do |event| %>
           <div class="card" style="margin-bottom:15px;">
             <div class="card-body" style="position:relative;">
-              <h5 class="card-title"><%= event.title %></h5>
-              <p class="card-text text-dark text-truncate" style="margin-top: 10px;margin-bottom: 3px;"><i class="bi bi-clock-fill text-primary"></i><%= event.event_date %> <%= event.event_time %></p>
-              <p class="card-text text-dark text-truncate"><i class="bi bi-geo-alt-fill text-danger"></i><%= event.location %></p>
-              <p class="card-text"><%= event.description %></p>
+              <h5 class="card-title">
+                <% if event.title == nil or event.title == '' %>
+                  Untitled
+                <% else %>
+                  <%= event.title %>
+                <% end %>
+              </h5>
+              <p class="card-text text-dark text-truncate" style="margin-top: 10px;margin-bottom: 3px;"><i class="bi bi-clock-fill text-primary"></i>
+                <% if event.event_date == nil %>
+                  Unspecified
+                <% else %>
+                  <%= event.event_date %>
+                <% end %>
+              </p>
+              <p class="card-text text-dark text-truncate"><i class="bi bi-geo-alt-fill text-danger"></i>
+                <% if event.location == nil or event.location == '' %>
+                  Unspecified
+                <% else %>
+                  <%= event.location %>
+                <% end %>
+              </p>
+              <p class="card-text">
+                <% if event.description == nil or event.description == '' %>
+                  This event does not have a description.
+                <% else %>
+                  <%= event.description %>
+                <% end %>
+              </p>
               <% if !(@attendance_records_registered.include? event.id) %>
                 <a class="btn btn-primary larger-btn mb-0" href="<%= register_details_event_path(event) %>" role="button">Register</a>
               <% else %>
