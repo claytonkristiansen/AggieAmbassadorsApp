@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top bg-light" style="border: 1px solid lightgrey;">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Aggie Ambassadors</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +18,13 @@
         <% if member_signed_in? %>
           <li class="nav-item">
             <div class="dropdown text-end">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="<%= member.avatar_url %>" class="rounded-circle" width="36" height="36">
+              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- Original image -->
+                <!--<img src="blank" class="rounded-circle" width="36" height="36">-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
               </a>
               <ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.333333px, 45px, 0px);" data-popper-placement="bottom-end">
                 <li><a class="dropdown-item" href="<%= member_path(id: get_id) %>">My Account</a></li>
