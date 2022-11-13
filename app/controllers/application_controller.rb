@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     end
 
     def is_member?
-        get_privilege == 10
+        get_privilege >= 10
     end
 
     def get_id

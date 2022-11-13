@@ -20,32 +20,32 @@ RSpec.describe('events/', type: :feature) do
         visit 'events/'
 
         # Testing that you can register for first event
-        find('tr', text: 'test event 1').click_link('Register')
+        find('div', class: 'card', text: 'test event 1').click_link('Register')
         click_on 'Confirm'
         expect(AttendanceRecord.where(event_id: test_event_1.id, member_id: member.id)).to(exist)
 
-        # Testing that you can regiser for second event
-        find('tr', text: 'test event 2').click_link('Register')
+        # Testing that you can register for second event
+        find('div', class: 'card', text: 'test event 2').click_link('Register')
         click_on 'Confirm'
         expect(AttendanceRecord.where(event_id: test_event_2.id, member_id: member.id)).to(exist)
 
-        # Testing that you can regiser for third event
-        find('tr', text: 'test event 3').click_link('Register')
+        # Testing that you can register for third event
+        find('div', class: 'card', text: 'test event 3').click_link('Register')
         click_on 'Confirm'
         expect(AttendanceRecord.where(event_id: test_event_3.id, member_id: member.id)).to(exist)
 
         # Testing that you can unregister for first event
-        find('tr', text: 'test event 1').click_link('Unregister')
+        find('div', class: 'card', text: 'test event 1').click_link('Unregister')
         click_on 'Confirm'
         expect(AttendanceRecord.where(event_id: test_event_1.id, member_id: member.id)).not_to(exist)
 
-        # Testing that you can unregiser for second event
-        find('tr', text: 'test event 2').click_link('Unregister')
+        # Testing that you can unregister for second event
+        find('div', class: 'card', text: 'test event 2').click_link('Unregister')
         click_on 'Confirm'
         expect(AttendanceRecord.where(event_id: test_event_2.id, member_id: member.id)).not_to(exist)
 
-        # Testing that you can unregiser for third event
-        find('tr', text: 'test event 3').click_link('Unregister')
+        # Testing that you can unregister for third event
+        find('div', class: 'card', text: 'test event 3').click_link('Unregister')
         click_on 'Confirm'
         expect(AttendanceRecord.where(event_id: test_event_3.id, member_id: member.id)).not_to(exist)
     end

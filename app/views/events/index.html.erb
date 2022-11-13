@@ -36,7 +36,7 @@
                   <% end %>
                 </p>
                 <% if !(@attendance_records_registered.include? event.id) %>
-                  <a class="btn btn-primary larger-btn mb-0" href="<%= register_details_event_path(event) %>" role="button"><i class="bi bi-plus-square"></i>Register</a>
+                  <a class="btn btn-primary larger-btn mb-0" href="<%= register_details_event_path(event) %>" role="button">Register</a>
                 <% else %>
                   <a class="btn btn-danger larger-btn mb-0" href="<%= unregister_details_event_path(event) %>" role="button">Unregister</a>
                 <% end %>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe('events/destroy', type: :feature) do
-    it 'Can delete an event' do
+    it 'deletes an event' do
         member = Member.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 20)
         allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:member_signed_in?).and_return(true))
         Rails.application.env_config['devise.mapping'] = Devise.mappings[:member]
@@ -24,7 +24,7 @@ RSpec.describe('events/destroy', type: :feature) do
         visit 'events'
         assert_text 'House party', count: 1
 
-        first(:link, 'Destroy').click
+        first(:link, 'Delete').click
         click_on 'Delete'
         assert_text 'House party', count: 0
     end
