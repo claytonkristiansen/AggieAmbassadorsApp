@@ -6,6 +6,10 @@ fresh:
 	rails db:create
 	rails db:migrate
 	rails db:seed
+	rails db:migrate RAILS_ENV=test
+
+tests:
+	rails spec .
 
 html:
 	cd ./app/views
