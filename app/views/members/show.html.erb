@@ -1,58 +1,65 @@
-<p id="notice"><%= notice %></p>
-
-<p>User profile page</p>
-<h1><%= @member.email %></h1>
-
-<p>
-  <strong>Name</strong>
-  <%= @member.full_name %>
-</p>
-
-<p>
-  <strong>Preferred Name</strong>
-  <%= @member.preferred_name %>
-</p>
-
-<div>
-    <h4>Attendance history</h4>
-    <p>These are the events you've attended.</p>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Event Title</th>
-      <th>Event Date</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% AttendanceRecord.where(member_id: @member.id, attended: true).each do |attendance_record| %> 
-      <tr>
-        <td><%= Event.where(id: attendance_record.event_id).last.title %></td>
-        <td><%= Event.where(id: attendance_record.event_id).last.event_date %></td>
-      </tr>
-    <% end %>
-  </tbody>
-
-</table>
-
-<div>
-    <h4>Membership requirements</h4>
-    <p>You're required to attend at least one event per year to remain a member.</p>
-    <% if AttendanceRecord.where(member_id: @member.id, attended: true).count > 0 %>
-      <p> Congratulations! You've met your membership requirement! </p>
-    <% else %>
-      <p> You have not met your membership requirement yet. </p>
-    <% end %>
-</div>
-
-<div>
-    <h4>Tips</h4>
-    <p>For each event you plan to attend, don't forget to confirm via the email reminder. When you attend the event, follow instructions by your member to confirm you're present.</p>
-</div>
-
-<p><%= link_to 'Edit', edit_member_path(@member) %></p>
-<% if is_owner? %>
-  <p><%= link_to 'Destroy', delete_member_path(@member) %></p>
-<% end %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p id="notice"><%= notice %></p>
+        </section>
+        <section class="page-info">
+          <h1>Account</h1>
+          <h5>View details about your profile and event history.</h5>
+        </section>
+        <section>
+          <p><strong>Avatar</strong></p>
+          <img src="<%= @member.avatar_url %>" style="width:60px;height:60px;margin-bottom:20px;">
+          <p><strong>Email</strong><br>
+            <%= @member.email %></p>
+          <p><strong>Full Name</strong><br>
+            <%= @member.full_name %></p>
+          <p><strong>Preferred Name</strong><br>
+            <% if @member.preferred_name == nil %>Not specified<% else %><%= @member.preferred_name %><% end %></p>
+        </section>
+        <section>
+          <h3>Membership Requirement</h3>
+          <p>Each year, you're required to attend at least one event.</p>
+          <% if AttendanceRecord.where(member_id: @member.id, attended: true).count > 0 %>
+            <div role="alert" class="alert alert-success alert-with-icon-left">
+              <p><i class="bi bi-trophy-fill"></i>You've met your membership requirement this year.</p>
+            </div>
+          <% else %>
+            <div role="alert" class="alert alert-danger alert-with-icon-left">
+              <p><i class="bi bi-hourglass-split"></i>You have not met your membership requirement this year yet.</p>
+            </div>
+          <% end %>
+        </section>
+        <section>
+          <h3>Attendance History</h3>
+          <p>These are the events you've signed up for or confirmed. Older events may not be shown. These are used to determine if you've met your membership requirement.</p>
+          <table class="table" style="margin: 30px 0 40px 0;">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% AttendanceRecord.where(member_id: @member.id, attended: true).each do |attendance_record| %>
+                <tr>
+                  <td><%= Event.where(id: attendance_record.event_id).last.title %></td>
+                  <td><%= Event.where(id: attendance_record.event_id).last.event_date %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <p>If you're interested in attending an event, you can sign up for it in the <a href="<%= events_path %>">Events page</a>. For each event you sign up for, you'll receive an email a few days before the event to confirm. Click the link in the email to confirm you'll be attending.</p>
+        </section>
+        <section>
+          <a class="btn btn-primary larger-btn" href="<%= edit_member_path(@member) %>" role="button">Edit account</a>
+          <% if is_owner? %>
+            <a class="btn btn-danger larger-btn" href="<%= delete_member_path(@member) %>" role="button">Delete account</a>
+          <% end %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
