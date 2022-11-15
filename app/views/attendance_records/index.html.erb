@@ -1,0 +1,66 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p id="notice"><%= notice %></p>
+        </section>
+        <section class="page-info">
+          <h1>Attendance Records</h1>
+          <h5>View and edit attendance records</h5>
+        </section>
+        <section>
+          <% @attendance_records.each do |attendance_record| %>
+            <% if Event.where(id: attendance_record.event_id).any? %>
+              <div class="card" style="margin-bottom:15px;">
+                <div class="card-body" style="position:relative;">
+                  <% event = Event.where(id: attendance_record.event_id).last %>
+                  <h4 style="font-weight:500;" class="card-title">
+                    Event: 
+                    <% if event.title == nil or event.title == '' %>
+                      Untitled
+                    <% else %>
+                      <%= event.title %>
+                    <% end %>
+                  
+                  </h4>
+                  <p class="card-text text-dark text-truncate" style="margin-top: 10px;margin-bottom: 3px;"><i class="bi bi-clock-fill text-primary"></i>
+                    Date: 
+                    <% if event.event_date == nil %>
+                      Unspecified
+                    <% else %>
+                      <%= event.event_date %>
+                    <% end %>
+                  </p>
+                  <p class="card-text text-dark text-truncate">
+                    Member registered: 
+                    <% if Member.where(id: attendance_record.member_id).last.full_name == nil %>
+                      Unspecified
+                    <% else %>
+                      <%= Member.where(id: attendance_record.member_id).last.full_name %>
+                    <% end %>
+                  </p>
+                  <% if is_event_creater? %>
+                    <div class="dropdown" style="right: 10px;position: absolute;top: 10px;">
+                      <a class="btn btn-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-gear-fill" style="margin:0;"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="<%= edit_attendance_record_path(attendance_record) %>">Edit</a></li>
+                        <li><a class="dropdown-item" href="<%= delete_attendance_record_path(attendance_record) %>">Delete</a></li>
+                      </ul>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </section>
+        <% if is_event_creater? %>
+          <section>
+            <a class="btn btn-primary larger-btn" href="<%= new_event_path %>" role="button">Add an event</a>
+            <p>This action is only visible to administrators.</p>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
