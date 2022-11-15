@@ -1,0 +1,30 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p id="notice"><%= notice %></p>
+        </section>
+        <section>
+          <h1><%= @attendance_record.id %></h1>
+        </section>
+        <section>
+          <p>
+            <strong>Member ID:</strong>
+            <%= @attendance_record.member_id %>
+          </p>
+          <p>
+            <strong>Event ID:</strong>
+            <%= @attendance_record.event_id %>
+          </p>
+          <p>
+            <strong>Confirmed Attending:</strong>
+            <%= @attendance_record.confirmed_attending %>
+          </p>
+          <%= link_to 'Edit', edit_attendance_record_path(@attendance_record) %> |
+          <%= link_to 'Back', attendance_records_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

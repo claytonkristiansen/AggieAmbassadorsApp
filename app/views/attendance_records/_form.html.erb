@@ -1,20 +1,19 @@
 <%= form_with(model: attendance_record) do |form| %>
-  <% if attendance_record.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(attendance_record.errors.count, "error") %> prohibited this attendance_record from being saved:</h2>
 
-      <ul>
-        <% attendance_record.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= form.label :member_id %>
+    <%= form.text_field :member_id %>
+  </div>
 
-  <%# <div class="field"> %>
-    <%# <%= form.label :title %> %>
-    <%# <%= form.text_field :title %> %>
-  <%# </div> %>
+  <div class="field">
+    <%= form.label :event_id %>
+    <%= form.text_field :event_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :confirmed_attending %>
+    <%= form.text_field :confirmed_attending %>
+  </div>
 
   
 
