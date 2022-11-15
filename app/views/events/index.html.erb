@@ -22,10 +22,10 @@
                   <% end %>
                 </p>
                 <p class="card-text text-dark text-truncate"><i class="bi bi-geo-alt-fill text-danger"></i>
-                  <% if event.location == nil or event.location == '' %>
+                  <% if Location.where(id: event.location_id).first == nil %>
                     Unspecified
                   <% else %>
-                    <%= event.location %>
+                    <%= Location.where(id: event.location_id).first.name %>
                   <% end %>
                 </p>
                 <p class="card-text">

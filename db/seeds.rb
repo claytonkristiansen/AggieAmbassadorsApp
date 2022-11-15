@@ -23,9 +23,15 @@ Organization.create!([{ name: 'Example Organization 2' }])
 Organization.create!([{ name: 'Example Organization 3' }])
 Organization.create!([{ name: 'Example Organization 4' }])
 
-Event.create!([{ title: 'Example Event 1', event_date: '2022-10-01' }])
-Event.create!([{ title: 'Example Event 2', event_date: '2022-10-02' }])
-Event.create!([{ title: 'Example Event 3', event_date: '2022-10-03' }])
-Event.create!([{ title: 'Example Event 4', event_date: '2022-10-04' }])
+
+Location.create!([{name: 'Zoom Room 1', address: 'https://zoom.us/join/5978873496786' }])
+Location.create!([{name: 'Zoom Room 2', address: 'https://zoom.us/join/873462378678678' }])
+
+
+Event.create!([{ title: 'Example Event 1', event_date: '2022-10-01', location_id: 1 }])
+
+#Event.create!([{ title: 'Example Event 2', event_date: '2022-10-02' }])
+#Event.create!([{ title: 'Example Event 3', event_date: '2022-10-03' }])
+#Event.create!([{ title: 'Example Event 4', event_date: '2022-10-04' }])
 
 AttendanceRecord.create!([{ member_id: 5, event_id: 1, confirmed_attending: true, attended: true }])
