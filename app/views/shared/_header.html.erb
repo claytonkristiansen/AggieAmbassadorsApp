@@ -10,6 +10,7 @@
         <% if member_signed_in? %>
           <% if is_owner? %>
             <li class="nav-item"><a class="nav-link" href="<%= members_path %>">Members</a></li>
+            <li class="nav-item"><a class="nav-link" href="<%= attendance_records_path %>">Attendance Records</a></li>
           <% end %>
           <li class="nav-item"><a class="nav-link" href="<%= events_path %>">Events</a></li>
         <% end %>

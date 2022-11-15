@@ -1,5 +1,6 @@
 class AttendanceRecordsController < ApplicationController
     def index
+        redirect_to(new_member_session_path, notice: 'You are not authorized.') unless is_owner?
         @attendance_records = AttendanceRecord.all
     end
 
@@ -20,9 +21,7 @@ class AttendanceRecordsController < ApplicationController
         end
     end
 
-    def edit;
-
-    end
+    def edit; end
 
     def new
         @attendance_record = AttendanceRecord.new
