@@ -10,7 +10,7 @@ RSpec.describe('event/index', type: :feature) do
         visit 'members/sign_in'
         click_on 'Sign in with Google'
 
-        Location.create!([{name: 'Example'}])
+        Location.create!([{ name: 'Example' }])
 
         visit 'events/new'
         fill_in 'event_title', with: 'Party'

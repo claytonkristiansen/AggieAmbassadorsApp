@@ -4,7 +4,7 @@ RSpec.describe('event/edit', type: :feature) do
     it 'is able to edit an event' do
         sign_in_test_account!
 
-        Location.create!([{name: 'Example'}])
+        Location.create!([{ name: 'Example' }])
 
         visit 'events/new'
         fill_in 'event_title', with: 'Party'

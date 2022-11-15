@@ -9,7 +9,7 @@ RSpec.describe('events/new', type: :feature) do
         visit 'members/sign_in'
         click_on 'Sign in with Google'
 
-        Location.create!([{name: 'Example'}])
+        Location.create!([{ name: 'Example' }])
 
         visit 'events/new'
         fill_in 'event_title', with: 'Party'
@@ -20,7 +20,7 @@ RSpec.describe('events/new', type: :feature) do
         select '30', from: 'event_event_time_5i'
         select 'Example', from: 'event_location_id'
 
-        #fill_in 'event_location', with: 'My house'
+        # fill_in 'event_location', with: 'My house'
         fill_in 'event_description', with: 'House party'
         click_on 'Create Event'
 

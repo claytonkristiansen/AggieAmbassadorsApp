@@ -13,7 +13,7 @@ RSpec.describe('events/', type: :feature) do
         #####################################################################################################
 
         # Creating test events
-        Location.create!([{name: 'Example'}])
+        Location.create!([{ name: 'Example' }])
 
         test_event_1 = Event.create(title: 'test event 1', description: 'test event 1 description', location_id: 1)
         test_event_2 = Event.create(title: 'test event 2', description: 'test event 2 description', location_id: 1)
