@@ -8,14 +8,14 @@ class MembersController < ApplicationController
             @members = Member.all
 
             respond_to do |format|
-                format.xlsx {
-                response.headers[
-                    'Attendance Record'
-                ] = "attachment; filename='Attendance Record.xlsx'"
-                }
-                format.html { render :index }
+                format.xlsx do
+                    response.headers[
+                        'Attendance Record'
+                    ] = "attachment; filename='Attendance Record.xlsx'"
+                end
+                format.html { render(:index) }
             end
-        else 
+        else
             redirect_to(new_member_session_path, notice: 'You are not authorized.') unless is_owner?
         end
     end
