@@ -1,3 +1,28 @@
-<h1>Aggie Ambassadors Home</h1>
-<h1>You are logged in! Welcome to the Member Dashboard!</h1>
-<%= link_to "Sign Out", destroy_member_session_path %>
+<header>
+  <div class="container text-center">
+    <div class="header-background-overlay"></div>
+    <section class="page-info page-info-invert header-subject">
+      <h1>Member Dashboard</h1>
+      <h5>Welcome to Aggie Ambassadors.</h5>
+    </section>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p id="notice"><%= notice %></p>
+        </section>
+        <section>
+          <p>You're signed in. You can view and register for events to meet your membership requirement, edit communication details, and more.</p>
+          <p>You can view your profile details by clicking the icon in the menu.</p>
+        </section>
+        <section>
+          <a class="btn btn-primary mb-3 larger-btn" href="<%= destroy_member_session_path %>" role="button">Sign out</a>
+          <p>Sign out of your account.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
