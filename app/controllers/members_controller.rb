@@ -4,16 +4,19 @@ class MembersController < ApplicationController
 
     # GET /members or /members.json
     def index
-        redirect_to(new_member_session_path, notice: 'You are not authorized.') unless is_owner?
-        @members = Member.all
+        if is_owner?
+            @members = Member.all
 
-        respond_to do |format|
-            format.xlsx {
-              response.headers[
-                'Attendance Record'
-              ] = "attachment; filename='Attendance Record.xlsx'"
-            }
-            format.html { render :index }
+            respond_to do |format|
+                format.xlsx {
+                response.headers[
+                    'Attendance Record'
+                ] = "attachment; filename='Attendance Record.xlsx'"
+                }
+                format.html { render :index }
+            end
+        else 
+            redirect_to(new_member_session_path, notice: 'You are not authorized.') unless is_owner?
         end
     end
 
