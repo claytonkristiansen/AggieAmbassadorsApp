@@ -1,0 +1,21 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  project_heading = style.add_style(b: true, sz: 14)
+  heading = style.add_style(b: true)
+
+  wb.add_worksheet(name: "Attendance Record") do |sheet|
+    # Add a title row
+    sheet.add_row ["Member Attendance Record"], style: project_heading
+    # Add the date this was downloaded
+    sheet.add_row ["Downloaded at", Time.now.strftime("%b %-d, %Y")]
+    # Add a blank row
+    sheet.add_row []
+    # Create the header row
+    sheet.add_row ["Member Name", "Event Name", "Event Date"], style: heading
+    # Create entries for each item
+    AttendanceRecord.where(attended: true).each do |attendance_record|
+      sheet.add_row [Member.where(id: attendance_record.member_id).last.full_name, Event.where(id: attendance_record.event_id).last.title, Event.where(id: attendance_record.event_id).last.event_date]
+    end
+  end
+end

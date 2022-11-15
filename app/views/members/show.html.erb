@@ -40,7 +40,7 @@
 <div>
     <h4>Membership requirements</h4>
     <p>You're required to attend at least one event per year to remain a member.</p>
-    <% if AttendanceRecord.where(member_id: @member.id, attended: true).count > 0 %>
+    <% if satisfied_requirement > 0 %>
       <p> Congratulations! You've met your membership requirement! </p>
     <% else %>
       <p> You have not met your membership requirement yet. </p>

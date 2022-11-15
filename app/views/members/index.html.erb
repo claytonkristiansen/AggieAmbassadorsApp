@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Members</h1>
+<% if is_owner? %>
+  <%= 
+    link_to 'Download attandance record as an Excel file',
+    members_path(format: :xlsx)
+  %>
+<% end %>
 
 <table>
   <thead>
