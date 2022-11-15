@@ -1,6 +1,19 @@
-<h1>Editing Event</h1>
-
-<%= render 'form', event: @event %>
-
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p id="notice"><%= notice %></p>
+        </section>
+        <section>
+          <h1>Editing Event</h1>
+        </section>
+        <section>
+          <%= render 'form', event: @event %>
+          <%= link_to 'Show', @event %> |
+          <%= link_to 'Back', events_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,24 @@
+header {
+    padding: 20vh 0;
+    position: relative;
+    background-color: rgb(25, 25, 25); /* Fallback color if the image does not load */
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.header-background-overlay {
+    background-color: black;
+    opacity: 0.8;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.header-subject {
+    z-index: 2;
+    position: relative;
+}

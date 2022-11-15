@@ -1,23 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe('members/index', type: :feature) do
-    it 'Can Show the users' do
+RSpec.describe('members/index', type: :view) do
+    it 'shows members list to authorized members' do
         # Create
         visit 'creating_new_user'
         fill_in 'member_email', with: 'email@email.com'
-        fill_in 'member_preferred_name', with: 'Example User'
         click_on 'Create Member'
 
         # Create
         visit 'creating_new_user'
         fill_in 'member_email', with: 'email1@email.com'
-        fill_in 'member_preferred_name', with: 'Example User'
         click_on 'Create Member'
 
         # Create
         visit 'creating_new_user'
         fill_in 'member_email', with: 'email2@email.com'
-        fill_in 'member_preferred_name', with: 'Example User'
         click_on 'Create Member'
 
         # Sign in
@@ -30,14 +27,16 @@ RSpec.describe('members/index', type: :feature) do
         click_on 'Sign in with Google'
 
         visit 'members'
-        assert_text 'Example User', count: 4
+        assert_text 'email@email.com', count: 1
+        assert_text 'email1@email.com', count: 1
+        assert_text 'email2@email.com', count: 1
+        assert_text 'fakeemail@tamu.edu', count: 1
     end
 
-    it 'Unauthorized user can not see the users' do
+    it 'does not show member list to unauthorized members' do
         # Create
         visit 'creating_new_user'
         fill_in 'member_email', with: 'email@email.com'
-        fill_in 'member_preferred_name', with: 'Example User'
         click_on 'Create Member'
 
         # Sign in
@@ -50,6 +49,7 @@ RSpec.describe('members/index', type: :feature) do
         click_on 'Sign in with Google'
 
         visit 'members'
-        assert_text 'Example User', count: 0
+        assert_text 'email@email.com', count: 0
+        assert_text 'fakeemail@tamu.edu', count: 0
     end
 end
