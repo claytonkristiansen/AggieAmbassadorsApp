@@ -17,6 +17,6 @@ RSpec.describe('members/new', type: :feature) do
         fill_in 'member_preferred_name', with: 'example user'
         click_on 'Create Member'
 
-        expect(ActionMailer::Base.deliveries).to be_empty
+        expect(ActionMailer::Base.deliveries).to(be_empty)
     end
 end
