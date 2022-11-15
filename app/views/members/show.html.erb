@@ -22,7 +22,7 @@
         <section>
           <h3>Membership Requirement</h3>
           <p>Each year, you're required to attend at least one event.</p>
-          <% if AttendanceRecord.where(member_id: @member.id, attended: true).count > 0 %>
+          <% if satisfied_requirement > 0 %>
             <div role="alert" class="alert alert-success alert-with-icon-left">
               <p><i class="bi bi-trophy-fill"></i>You've met your membership requirement this year.</p>
             </div>

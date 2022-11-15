@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     helper_method :is_event_creater?
     helper_method :is_member?
     helper_method :get_id
+    helper_method :satisfied_requirement
 
     def get_privilege
         user = Member.where(email: session[:user_email]).first
@@ -31,5 +32,9 @@ class ApplicationController < ActionController::Base
         return -1 if user.nil?
 
         user.id
+    end
+
+    def satisfied_requirement
+        count = AttendanceRecord.where(member_id: @member.id, attended: true).count
     end
 end

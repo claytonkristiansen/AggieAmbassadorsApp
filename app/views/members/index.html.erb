@@ -9,6 +9,16 @@
           <h1>Member List</h1>
           <h5>This list shows all members including administrators with registered accounts.</h5>
         </section>
+        
+        <section class="download-excel">
+          <% if is_owner? %>
+            <%= 
+              link_to 'Download attandance record as an Excel file',
+              members_path(format: :xlsx)
+            %>
+         <% end %>
+        </section>
+        
         <section class="member-list">
           <div class="row">
             <div class="col">
