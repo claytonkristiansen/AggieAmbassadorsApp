@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-14T20:19:05+00:00">2022-11-14T20:19:05+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-15T02:52:21+00:00">2022-11-15T02:52:21+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  95.85%
+  94.1%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.84
+         2.78
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>844</b> relevant lines,
-    <span class="green"><b>809</b> lines covered</span> and
-    <span class="red"><b>35</b> lines missed. </span>
+    <b>864</b> relevant lines,
+    <span class="green"><b>813</b> lines covered</span> and
+    <span class="red"><b>51</b> lines missed. </span>
     (<span class="green">
-  95.85%
+  94.1%
 </span>
 )
   </div>
@@ -204,12 +204,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#14ff4122c34fa28f46445bf5e9bcdbede4efa08a" class="src_link" title="app/mailers/member_mailer.rb">app/mailers/member_mailer.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">66.67 %</td>
-            <td class="cell--number">15</td>
-            <td class="cell--number">9</td>
+            <td class="red strong cell--number t-file__coverage">24.00 %</td>
+            <td class="cell--number">39</td>
+            <td class="cell--number">25</td>
             <td class="cell--number">6</td>
-            <td class="cell--number">3</td>
-            <td class="cell--number">0.67</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">0.24</td>
             
           </tr>
         
@@ -568,9 +568,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#728f1577cebe2a7296b867c94e49cc728bc5bfe1" class="src_link" title="spec/features/mailer/create_new_user_spec.rb">spec/features/mailer/create_new_user_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">22</td>
-            <td class="cell--number">15</td>
-            <td class="cell--number">15</td>
+            <td class="cell--number">26</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">19</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -5521,7 +5521,7 @@
 
             
 
-            <code class="ruby">    default from: &#39;jdf0001045432@tamu.edu&#39;</code>
+            <code class="ruby">    default from: ENV[&quot;email_username&quot;]</code>
           </li>
         </div>
       
@@ -5557,7 +5557,7 @@
     <h3>app/mailers/member_mailer.rb</h3>
     <h4>
       <span class="red">
-  66.67%
+  24.0%
 </span>
 
       lines covered
@@ -5566,9 +5566,9 @@
     
 
     <div class="t-line-summary">
-      <b>9</b> relevant lines.
+      <b>25</b> relevant lines.
       <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <span class="red"><b>19</b> lines missed.</span>
     </div>
 
     
@@ -5662,40 +5662,40 @@
 
             
 
-            <code class="ruby">    mail(to: &#39;jdf0001045432@tamu.edu&#39;, subject: &#39;Event Coming Up&#39;)</code>
+            <code class="ruby">    future_date = Time.now + 2.days</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
+          <li class="missed" data-hits="0" data-linenumber="9">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    events = Event.where(event_date: future_date)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="10">
+          <li class="missed" data-hits="0" data-linenumber="10">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    events.each do |event|</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="11">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="11">
+            
             
 
             
 
-            <code class="ruby">  def event_requirement_email</code>
+            <code class="ruby">      @event = event</code>
           </li>
         </div>
       
@@ -5706,7 +5706,7 @@
 
             
 
-            <code class="ruby">    @member = params[:member]</code>
+            <code class="ruby">      records = AttendanceRecord.where(event_id: @event.id)</code>
           </li>
         </div>
       
@@ -5717,12 +5717,78 @@
 
             
 
-            <code class="ruby">    mail(to: @member.email, subject: &quot;Don&#39;t Forget To Get Your Event Credit&quot;)</code>
+            <code class="ruby">      records.each do |record|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
+          <li class="missed" data-hits="0" data-linenumber="14">
+            
+            
+
+            
+
+            <code class="ruby">        @member = Member.find(id: record.member_id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="15">
+            
+            
+
+            
+
+            <code class="ruby">        if @member.send_emails</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="16">
+            
+            
+
+            
+
+            <code class="ruby">          mail(to: @member.email, subject: &#39;Event Coming Up&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="18">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
@@ -5733,7 +5799,205 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def event_requirement_email</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">    current_date = Time.now</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">    puts current_date</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby">    if current_date.month &gt;= 7</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby">      check_date = Time.new(current_date.year, 7, 1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">      check_date = Time.new(current_date.year - 1, 7, 1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="30">
+            
+            
+
+            
+
+            <code class="ruby">    members = Member.where(send_emails: true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="31">
+            
+            
+
+            
+
+            <code class="ruby">    members.each do |member|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="32">
+            
+            
+
+            
+
+            <code class="ruby">      @member = member</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="33">
+            
+            
+
+            
+
+            <code class="ruby">      if AttendanceRecord.where(member_id: @member.id, attended: true).where(&quot;created_at &gt;= ?&quot;, check_date ).empty?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby">        mail(to: @member.email, subject: &quot;Don&#39;t Forget To Attend An Event&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="36">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="37">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="38">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="39">
             
             
 
@@ -18084,8 +18348,8 @@
     
 
     <div class="t-line-summary">
-      <b>15</b> relevant lines.
-      <span class="green"><b>15</b> lines covered</span> and
+      <b>19</b> relevant lines.
+      <span class="green"><b>19</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -18147,7 +18411,7 @@
 
             
 
-            <code class="ruby">        visit &#39;creating_new_user&#39;</code>
+            <code class="ruby">        ENV[&quot;email_username&quot;] = &quot;email@email.com&quot;</code>
           </li>
         </div>
       
@@ -18158,7 +18422,7 @@
 
             
 
-            <code class="ruby">        fill_in &#39;member_email&#39;, with: &#39;email@email.com&#39;</code>
+            <code class="ruby">        ENV[&quot;email_password&quot;] = &quot;123&quot;</code>
           </li>
         </div>
       
@@ -18169,7 +18433,7 @@
 
             
 
-            <code class="ruby">        fill_in &#39;member_preferred_name&#39;, with: &#39;example user&#39;</code>
+            <code class="ruby">        visit &#39;creating_new_user&#39;</code>
           </li>
         </div>
       
@@ -18180,7 +18444,7 @@
 
             
 
-            <code class="ruby">        find(&quot;label[for=&#39;member_send_emails&#39;]&quot;).click</code>
+            <code class="ruby">        fill_in &#39;member_email&#39;, with: &#39;email@email.com&#39;</code>
           </li>
         </div>
       
@@ -18191,18 +18455,18 @@
 
             
 
-            <code class="ruby">        click_on &#39;Create Member&#39;</code>
+            <code class="ruby">        fill_in &#39;member_preferred_name&#39;, with: &#39;example user&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="10">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="10">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        find(&quot;label[for=&#39;member_send_emails&#39;]&quot;).click</code>
           </li>
         </div>
       
@@ -18213,7 +18477,7 @@
 
             
 
-            <code class="ruby">        expect(ActionMailer::Base.deliveries).not_to be_empty</code>
+            <code class="ruby">        click_on &#39;Create Member&#39;</code>
           </li>
         </div>
       
@@ -18224,40 +18488,40 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="13">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(ActionMailer::Base.deliveries).not_to be_empty</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
+            
+            
+
+            
+
             <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="13">
+          <li class="never" data-hits="" data-linenumber="15">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="14">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    it &#39;Will Send email when user is created&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="15">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        visit &#39;creating_new_user&#39;</code>
           </li>
         </div>
       
@@ -18268,7 +18532,7 @@
 
             
 
-            <code class="ruby">        fill_in &#39;member_email&#39;, with: &#39;email@email.com&#39;</code>
+            <code class="ruby">    it &#39;Will Send email when user is created&#39; do</code>
           </li>
         </div>
       
@@ -18279,7 +18543,7 @@
 
             
 
-            <code class="ruby">        fill_in &#39;member_preferred_name&#39;, with: &#39;example user&#39;</code>
+            <code class="ruby">        ENV[&quot;email_username&quot;] = &quot;email@email.com&quot;</code>
           </li>
         </div>
       
@@ -18290,18 +18554,18 @@
 
             
 
-            <code class="ruby">        click_on &#39;Create Member&#39;</code>
+            <code class="ruby">        ENV[&quot;email_password&quot;] = &quot;123&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        visit &#39;creating_new_user&#39;</code>
           </li>
         </div>
       
@@ -18312,12 +18576,56 @@
 
             
 
+            <code class="ruby">        fill_in &#39;member_email&#39;, with: &#39;email@email.com&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        fill_in &#39;member_preferred_name&#39;, with: &#39;example user&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        click_on &#39;Create Member&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="24">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">        expect(ActionMailer::Base.deliveries).to be_empty</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="never" data-hits="" data-linenumber="25">
             
             
 
@@ -18328,7 +18636,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="never" data-hits="" data-linenumber="26">
             
             
 

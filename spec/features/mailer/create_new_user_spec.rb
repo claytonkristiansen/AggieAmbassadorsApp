@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe('members/new', type: :feature) do
     it 'Will Send email when user is created' do
+        ENV["email_username"] = "email@email.com"
+        ENV["email_password"] = "123"
         visit 'creating_new_user'
         fill_in 'member_email', with: 'email@email.com'
         fill_in 'member_preferred_name', with: 'example user'
@@ -12,6 +14,8 @@ RSpec.describe('members/new', type: :feature) do
     end
 
     it 'Will Send email when user is created' do
+        ENV["email_username"] = "email@email.com"
+        ENV["email_password"] = "123"
         visit 'creating_new_user'
         fill_in 'member_email', with: 'email@email.com'
         fill_in 'member_preferred_name', with: 'example user'
