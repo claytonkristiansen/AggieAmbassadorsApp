@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :locations
   resources :events do
     member do
       get :delete

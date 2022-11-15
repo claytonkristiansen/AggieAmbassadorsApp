@@ -10,6 +10,8 @@ RSpec.describe('event/index', type: :feature) do
         visit 'members/sign_in'
         click_on 'Sign in with Google'
 
+        Location.create!([{name: 'Example'}])
+
         visit 'events/new'
         fill_in 'event_title', with: 'Party'
         select '2022', from: 'event_event_date_1i'
@@ -17,7 +19,7 @@ RSpec.describe('event/index', type: :feature) do
         select '1', from: 'event_event_date_3i'
         select '02', from: 'event_event_time_4i'
         select '30', from: 'event_event_time_5i'
-        fill_in 'event_location', with: 'My house'
+        select 'Example', from: 'event_location_id'
         fill_in 'event_description', with: 'House party'
         click_on 'Create Event'
 
@@ -28,7 +30,7 @@ RSpec.describe('event/index', type: :feature) do
         select '2', from: 'event_event_date_3i'
         select '03', from: 'event_event_time_4i'
         select '45', from: 'event_event_time_5i'
-        fill_in 'event_location', with: 'Library'
+        select 'Example', from: 'event_location_id'
         fill_in 'event_description', with: 'Discussing books'
         click_on 'Create Event'
 

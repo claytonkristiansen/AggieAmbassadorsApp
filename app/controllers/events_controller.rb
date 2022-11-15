@@ -93,10 +93,11 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
         @event = Event.find(params[:id])
+        @location = Location.where(id: @event.location_id).first
     end
 
     # Only allow a list of trusted parameters through.
     def event_params
-        params.require(:event).permit(:title, :event_date, :event_time, :location, :description)
+        params.require(:event).permit(:title, :event_date, :event_time, :location_id, :description, location_attributes: [:id, :name, :address])
     end
 end
