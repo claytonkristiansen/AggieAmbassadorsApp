@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-    default from: 'jdf0001045432@tamu.edu'
+    default from: ENV["email_username"]
     layout 'mailer'
 end

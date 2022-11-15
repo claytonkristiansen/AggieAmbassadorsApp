@@ -41,14 +41,13 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'google.com',
-    user_name:            'jdf0001045432@tamu.edu',
-    password:             'jyyizrrtmdxwqayr',
+    user_name:            ENV["email_username"],
+    password:             ENV["password"],
     authentication:       'plain',
   }
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'email@email.com'}
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
