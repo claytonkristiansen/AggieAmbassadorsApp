@@ -10,7 +10,7 @@ Method for creating new organizations:
 
 # Aggie Ambassadors App
 
-#### [Link to Test Website](https://aggieambassa-test-branc-m6awge.herokuapp.com/)
+#### [Link to Test Website](https://aggieambassadorapptest.herokuapp.com/)
 
 #### [Link to Production Website](https://aggieambassadorsapp.herokuapp.com/)
 
