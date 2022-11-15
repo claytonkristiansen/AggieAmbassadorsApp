@@ -29,7 +29,10 @@ class MembersController < ApplicationController
 
         respond_to do |format|
             if @member.save
-                format.html do
+                if @member.send_emails
+                    MemberMailer.with(member: @member).welcome_email.deliver_now!
+                end
+                    format.html do
                     redirect_to(new_member_session_path, notice: 'Member was successfully created.')
                 end
                 format.json {}
