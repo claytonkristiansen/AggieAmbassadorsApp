@@ -41,6 +41,7 @@ class MembersController < ApplicationController
 
         respond_to do |format|
             if @member.save
+                MemberMailer.with(member: @member).welcome_email.deliver_later if @member.send_emails
                 format.html do
                     redirect_to(new_member_session_path, notice: 'Member was successfully created.')
                 end

@@ -69,6 +69,7 @@ group :development do
     gem 'brakeman'
 end
 
+gem 'clockwork', require: false
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
