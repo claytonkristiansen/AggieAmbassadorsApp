@@ -2,7 +2,6 @@
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
       <ul>
         <% event.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,32 +9,37 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :title %>
+    <p><%= form.label :title %></p>
     <%= form.text_field :title %>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :event_date %>
+    <p><label for="event_location_id">Select a location</label></p>
+    <select name="event[location_id]" id="event_location_id">
+      <% Location.all.each do |current_location_iter| %>
+        <option value="<%= current_location_iter.id %>"><%= current_location_iter.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <a href="<%= locations_path %>">Add or manage locations</a>
+  <br>
+  <br>
+  <div class="field">
+    <p><%= form.label :event_date %></p>
     <%= form.date_select :event_date %>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :event_time %>
+    <p><%= form.label :event_time %></p>
     <%= form.time_select :event_time %>
   </div>
-
+  <br>
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
+    <p><%= form.label :description %></p>
     <%= form.text_field :description %>
   </div>
-
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

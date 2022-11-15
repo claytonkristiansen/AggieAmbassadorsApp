@@ -4,37 +4,37 @@ RSpec.describe('organization/destroy', type: :feature) do
     it 'Delete an organization by authorized user' do
         test_email = 'fakeemail@tamu.edu'
 
-        # create internal test admin account
-        if Admin.where(email: test_email).first.nil?
-            admin = Admin.create!(email: test_email, privilege_level: 30)
+        # create internal test member account
+        if Member.where(email: test_email).first.nil?
+            member = Member.create!(email: test_email, privilege_level: 30)
         else
-            admin = Admin.where(email: test_email).first
-            admin.privilege_level = 30
-            admin.save
+            member = Member.where(email: test_email).first
+            member.privilege_level = 30
+            member.save
         end
 
         # allow authentication
-        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:admin_signed_in?).and_return(true))
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:member_signed_in?).and_return(true))
+        Rails.application.env_config['devise.mapping'] = Devise.mappings[:member]
         Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
-        visit 'admins/sign_in'
+        visit 'members/sign_in'
         click_on 'Sign in with Google'
 
-        expect(page).to(have_content('Sign Out'))
+        # expect(page).to(have_content('Sign Out'))
 
         # go to organizations page
         visit '/organizations'
         expect(page).to(have_content('Organization Directory'))
         expect(page).to(have_content('Aggie'))
 
-        # this must be present for the signed in admin
+        # this must be present for the signed in member
         expect(page).to(have_content('Add an organization'))
-        expect(page).to(have_content('Sign Out'))
+        # expect(page).to(have_content('Sign Out'))
 
         click_on 'Add an organization'
 
         expect(page).to(have_content('New Organization'))
-        expect(page).to(have_content('Sign Out'))
+        # expect(page).to(have_content('Sign Out'))
         expect(page).to(have_content('Back'))
 
         # fill sample entry in form
@@ -66,8 +66,9 @@ RSpec.describe('organization/destroy', type: :feature) do
         expect(page).to(have_content(@organization.contact_title))
 
         # trigger delete option
-        expect(page).to(have_content('Remove this organization from the directory'))
-        click_on 'Remove this organization from the directory'
+        # expect(page).to(have_content('Remove this organization from the directory'))
+        # click_on 'Remove this organization from the directory'
+        visit delete_organization_path(id: @organization.id)
 
         # at this point redirected to the confirm page
         expect(page).to(have_content('Destroy the Orgnization'))

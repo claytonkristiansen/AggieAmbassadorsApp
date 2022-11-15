@@ -1,31 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe('admin/destroy', type: :feature) do
-    it 'delete users' do
-        # Create
+RSpec.describe('member/destroy', type: :feature) do
+    it 'deletes a member' do
         visit 'creating_new_user'
-        fill_in 'admin_email', with: 'email@email.com'
-        fill_in 'admin_preferred_name', with: 'Example User'
-        click_on 'Create Admin'
+        fill_in 'member_email', with: 'email1@email.com'
+        click_on 'Create Member'
 
-        visit 'creating_new_user'
-        fill_in 'admin_email', with: 'email2@email.com'
-        fill_in 'admin_preferred_name', with: 'Example User'
-        click_on 'Create Admin'
+        sign_in_test_account!
 
-        admin = Admin.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 30)
-        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:admin_signed_in?).and_return(true))
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-        Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
+        visit 'members'
 
-        visit 'admins/sign_in'
-        click_on 'Sign in with Google'
+        click_on 'email1@email.com'
 
-        visit 'admins'
-        assert_text 'Example User', count: 3
+        assert_text 'Account'
+        assert_text 'email1@email.com'
 
-        first(:link, 'Remove').click
+        click_on 'Delete account'
         click_on 'Delete'
-        assert_text 'Example User', count: 2
+
+        assert_text 'Member was successfully destroyed.'
+        assert_text 'email1@email.com', count: 0
     end
 end

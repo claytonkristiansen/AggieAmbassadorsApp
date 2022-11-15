@@ -1,0 +1,14 @@
+<div Class="delete">
+    <h1>Destroy the Member</h1>
+    <%= form_for(@member, :method => 'delete') do |form| %>
+        <p>Are you sure?</p>
+        <p> Full Name: <%= @member.full_name  %></p>
+        <p> Email: <%= @member.email  %></p>
+
+        <div class="actions">
+            <%= form.submit("Delete")%>
+        </div>
+    <%end%>
+
+    <%= link_to 'Back', members_path %>
+</div>

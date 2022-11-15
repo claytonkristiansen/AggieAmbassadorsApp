@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class OrganizationsController < ApplicationController
-    skip_before_action :authenticate_admin!, only: %i[index show]
+    skip_before_action :authenticate_member!, only: %i[index show]
     before_action :set_organization, only: %i[show edit update destroy]
 
     # GET /organizations or /organizations.json

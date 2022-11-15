@@ -1,55 +1,55 @@
 require 'rails_helper'
 
-RSpec.describe('admins/index', type: :feature) do
-    it 'Can Show the users' do
+RSpec.describe('members/index', type: :view) do
+    it 'shows members list to authorized members' do
         # Create
         visit 'creating_new_user'
-        fill_in 'admin_email', with: 'email@email.com'
-        fill_in 'admin_preferred_name', with: 'Example User'
-        click_on 'Create Admin'
+        fill_in 'member_email', with: 'email@email.com'
+        click_on 'Create Member'
 
         # Create
         visit 'creating_new_user'
-        fill_in 'admin_email', with: 'email1@email.com'
-        fill_in 'admin_preferred_name', with: 'Example User'
-        click_on 'Create Admin'
+        fill_in 'member_email', with: 'email1@email.com'
+        click_on 'Create Member'
 
         # Create
         visit 'creating_new_user'
-        fill_in 'admin_email', with: 'email2@email.com'
-        fill_in 'admin_preferred_name', with: 'Example User'
-        click_on 'Create Admin'
+        fill_in 'member_email', with: 'email2@email.com'
+        click_on 'Create Member'
 
         # Sign in
-        admin = Admin.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 30)
-        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:admin_signed_in?).and_return(true))
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+        member = Member.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 30)
+        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:member_signed_in?).and_return(true))
+        Rails.application.env_config['devise.mapping'] = Devise.mappings[:member]
         Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
 
-        visit 'admins/sign_in'
+        visit 'members/sign_in'
         click_on 'Sign in with Google'
 
-        visit 'admins'
-        assert_text 'Example User', count: 4
+        visit 'members'
+        assert_text 'email@email.com', count: 1
+        assert_text 'email1@email.com', count: 1
+        assert_text 'email2@email.com', count: 1
+        assert_text 'fakeemail@tamu.edu', count: 1
     end
 
-    it 'Unauthorized user can not see the users' do
+    it 'does not show member list to unauthorized members' do
         # Create
         visit 'creating_new_user'
-        fill_in 'admin_email', with: 'email@email.com'
-        fill_in 'admin_preferred_name', with: 'Example User'
-        click_on 'Create Admin'
+        fill_in 'member_email', with: 'email@email.com'
+        click_on 'Create Member'
 
         # Sign in
-        admin = Admin.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 10)
-        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:admin_signed_in?).and_return(true))
-        Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
+        member = Member.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 10)
+        allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:member_signed_in?).and_return(true))
+        Rails.application.env_config['devise.mapping'] = Devise.mappings[:member]
         Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
 
-        visit 'admins/sign_in'
+        visit 'members/sign_in'
         click_on 'Sign in with Google'
 
-        visit 'admins'
-        assert_text 'Example User', count: 0
+        visit 'members'
+        assert_text 'email@email.com', count: 0
+        assert_text 'fakeemail@tamu.edu', count: 0
     end
 end

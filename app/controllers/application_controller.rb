@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-    before_action :authenticate_admin!
+    before_action :authenticate_member!
     helper_method :is_owner?
     helper_method :is_event_creater?
     helper_method :is_member?
     helper_method :get_id
+    helper_method :satisfied_requirement
 
     def get_privilege
-        user = Admin.where(email: session[:user_email]).first
+        user = Member.where(email: session[:user_email]).first
         return -1 if user.nil?
 
         user.privilege_level
@@ -23,13 +24,17 @@ class ApplicationController < ActionController::Base
     end
 
     def is_member?
-        get_privilege == 10
+        get_privilege >= 10
     end
 
     def get_id
-        user = Admin.where(email: session[:user_email]).first
+        user = Member.where(email: session[:user_email]).first
         return -1 if user.nil?
 
         user.id
+    end
+
+    def satisfied_requirement
+        count = AttendanceRecord.where(member_id: @member.id, attended: true).count
     end
 end
