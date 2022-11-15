@@ -14,4 +14,4 @@ tests:
 html:
 	cd ./app/views
 	which htmlbeautifier
-	find . -type f -name '*.html.erb' -not -name '_*' -exec htmlbeautifier {} ';' -exec ls {} ';'
+	find . -type f -name '*.html.erb' -exec htmlbeautifier {} ';' -exec ls {} ';'
