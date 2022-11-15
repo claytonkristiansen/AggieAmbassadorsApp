@@ -26,11 +26,12 @@
                   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                 </svg>
               </a>
-              <ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.333333px, 45px, 0px);" data-popper-placement="bottom-end">
-                <li><a class="dropdown-item" href="<%= member_path(id: get_id) %>">My Account</a></li>
-                <li><a class="dropdown-item" href="<%= edit_member_path(id: get_id) %>">Settings</a></li>
+              <ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.333333px, 45px, 0px); --bs-dropdown-border-radius: 0.675rem;" data-popper-placement="bottom-end">
+                <li><a class="dropdown-item" href="<%= member_path(id: get_id) %>"><i class="bi bi-person-lines-fill"></i>My Account</a></li>
+                <li><a class="dropdown-item" href="<%= edit_member_path(id: get_id) %>"><i class="bi bi-gear-fill"></i>Preferences</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-life-preserver"></i>Help</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="<%= destroy_member_session_path %>">Sign out</a></li>
+                <li><a class="dropdown-item" href="<%= destroy_member_session_path %>"><i class="bi bi-box-arrow-right"></i>Sign out</a></li>
               </ul>
             </div>
           </li>

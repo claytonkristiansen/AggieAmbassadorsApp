@@ -21,21 +21,21 @@
         </section>
         <section>
           <h3>Membership Requirement</h3>
-          <p>Each year, you're required to attend at least one event to remain a member.</p>
+          <p>Each year, you're required to attend at least one event.</p>
           <% if AttendanceRecord.where(member_id: @member.id, attended: true).count > 0 %>
-            <div class="alert alert-success" role="alert">
-              <p><i class="bi bi-trophy-fill" style="padding-right:10px;"></i> Congratulations! You've met your membership requirement this year.</p>
+            <div role="alert" class="alert alert-success alert-with-icon-left">
+              <p><i class="bi bi-trophy-fill"></i>You've met your membership requirement this year.</p>
             </div>
           <% else %>
-            <div class="alert alert-warning" role="alert">
-              <p><i class="bi bi-clock-fill" style="padding-right:10px;"></i> You have not met your membership requirement this year yet.</p>
+            <div role="alert" class="alert alert-danger alert-with-icon-left">
+              <p><i class="bi bi-hourglass-split"></i>You have not met your membership requirement this year yet.</p>
             </div>
           <% end %>
         </section>
         <section>
           <h3>Attendance History</h3>
           <p>These are the events you've signed up for or confirmed. Older events may not be shown. These are used to determine if you've met your membership requirement.</p>
-          <table class="table" style="margin: 30px 0;">
+          <table class="table" style="margin: 30px 0 40px 0;">
             <thead>
               <tr>
                 <th>Title</th>
@@ -51,7 +51,7 @@
               <% end %>
             </tbody>
           </table>
-          <p>If you're interested in attending an event, you can sign up for it in the <a href="<%= events_path %>">Events page</a>. For each event you sign up for, you'll recive an email a few days before the event to confirm. Click the link in the email to confirm you'll be attending.</p>
+          <p>If you're interested in attending an event, you can sign up for it in the <a href="<%= events_path %>">Events page</a>. For each event you sign up for, you'll receive an email a few days before the event to confirm. Click the link in the email to confirm you'll be attending.</p>
         </section>
         <section>
           <a class="btn btn-primary larger-btn" href="<%= edit_member_path(@member) %>" role="button">Edit account</a>
