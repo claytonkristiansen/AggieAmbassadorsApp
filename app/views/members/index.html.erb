@@ -1,34 +1,63 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Members</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>Email title</th>
-      <th>Preferred Name</th>
-      <th>Privilege Level</th>
-      <th>Position Title</th>
-      <th colspan="7"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @members.each do |member| %>
-      <tr>
-        <td><%= member.full_name %></td>
-        <td><%= member.email %></td>
-        <td><%= member.preferred_name %></td>
-        <td><%= member.privilege_level %></td>
-        <td><%= member.position_title %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Remove', delete_member_path(member) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_member_path %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p id="notice"><%= notice %></p>
+        </section>
+        <section class="page-info">
+          <h1>Member List</h1>
+          <h5>This list shows all members including administrators with registered accounts.</h5>
+        </section>
+        
+        <section class="download-excel">
+          <% if is_owner? %>
+            <%= 
+              link_to 'Download attandance record as an Excel file',
+              members_path(format: :xlsx)
+            %>
+         <% end %>
+        </section>
+        
+        <section class="member-list">
+          <div class="row">
+            <div class="col">
+              <% @members.each do |member| %>
+                <a href="<%= member_path(member) %>">
+                  <div class="card" style="margin-bottom: 20px;">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col-md-auto">
+                          <% if member.avatar_url == nil %>
+                            <div class="profile-img"></div>
+                          <% else %>
+                            <img class="profile-img" src="<%= member.avatar_url %>">
+                          <% end %>
+                        </div>
+                        <div class="col">
+                          <% if member.full_name == nil %>
+                            <h5 class="card-title my-0"><%= member.email %></h5>
+                          <% else %>
+                            <h5 class="card-title"><%= member.full_name %></h5>
+                            <h6 class="card-subtitle text-muted"><%= member.email %></h6>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </section>
+        <section>
+          <a class="btn btn-primary larger-btn" href="<%= new_member_path %>" role="button">Add a user</a>
+          <p>Add a new user to the members list.</p>
+        </section>
+        <section>
+          <p>This page is only visible to administrators. Administrator accounts have elevated privledges and can make changes to organization, events, and member data.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

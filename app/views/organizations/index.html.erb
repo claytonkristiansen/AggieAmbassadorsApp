@@ -1,28 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Organization Directory</h1>
-<p>These organizations are tracked by Aggie Ambassadors.</p>
-
-<br>
-
-<div>
-
-  <h4>Organization name</h4>
-
-  <% @organizations.each do |organization| %>
-    <div>
-      <p><%= link_to organization.name, organization %></p>
-    </div>
-  <% end %>
-
-</div>
-
-<br>
-
-<% if is_owner? %>
-  <div>
-    <h4>Administrator actions</h4>
-    <p>Only administrators can see this section.</p>
-    <p><%= link_to 'Add an organization', new_organization_path %></p>
+<header>
+  <div class="container text-center">
+    <div class="header-background-overlay"></div>
+    <section class="page-info page-info-invert header-subject">
+      <h1>Organization Directory</h1>
+      <h5>These organizations are tracked by Aggie Ambassadors.</h5>
+    </section>
   </div>
-<% end %>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p id="notice"><%= notice %></p>
+        </section>
+        <section>
+          <% @organizations.each do |organization| %>
+            <div class="card" style="margin-bottom:10px;">
+              <div class="card-body">
+                <%= link_to organization.name, organization %>
+              </div>
+            </div>
+          <% end %>
+        </section>
+        <% if is_owner? %>
+          <section>
+            <a class="btn btn-primary mb-3 larger-btn" href="<%= new_organization_path %>" role="button">Add an organization</a>
+            <p>Only administrators can see this action.</p>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

@@ -102,3 +102,12 @@ OmniAuth.config.test_mode = true
 OmniAuth.config.silence_get_warning = true
 OmniAuth.config.add_mock(:google_oauth2, {:uid => '12345', :info => {:email => 'fakeemail@tamu.edu', :full_name => "Example User"}})
 
+
+def sign_in_test_account!
+  Member.create!(email: 'fakeemail@tamu.edu', full_name: 'Example User', privilege_level: 30)
+  allow_any_instance_of(Devise::Controllers::Helpers).to(receive(:member_signed_in?).and_return(true))
+  Rails.application.env_config['devise.mapping'] = Devise.mappings[:member]
+  Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
+  visit 'members/sign_in'
+  click_on 'Sign in with Google'
+end

@@ -1,3 +1,17 @@
-<h1>Aggie Ambassadors Home</h1>
-<h2>You are Logged out! Log in to the Member Dashboard</h2>
-<%= link_to "Sign in with Google", member_google_oauth2_omniauth_authorize_path %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section></section>
+        <section class="page-info">
+          <h1>Welcome.</h1>
+          <h5>Sign in to access the member area.</h5>
+        </section>
+        <section>
+          <a class="btn btn-primary mb-3 larger-btn" href="<%= member_google_oauth2_omniauth_authorize_path %>" role="button">Sign in with Google</a>
+          <p>Click to sign in with your university email.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,9 +1,22 @@
-<h1>Editing Member</h1>
-
-<%= render 'form_edit', member: @member %>
-
-<% if is_owner? %>
-    <%= link_to 'Back', members_path %>
-<% else %>
-    <%= link_to 'Back', member_path(id: get_id) %>
-<% end%>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section></section>
+        <section>
+          <h1>Editing Member</h1>
+        </section>
+        <section>
+          <%= render 'form_edit', member: @member %>
+        </section>
+        <section>
+          <% if is_owner? %>
+            <a class="btn btn-light mb-3 larger-btn" href="<%= members_path %>" role="button">Back</a>
+          <% else %>
+            <a class="btn btn-light mb-3 larger-btn" href="<%= member_path(id: get_id) %>" role="button">Back</a>
+          <% end%>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
