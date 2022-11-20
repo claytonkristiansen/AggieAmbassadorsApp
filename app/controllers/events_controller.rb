@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+    before_action :restrict_access, only: %i[new create edit update]
     before_action :set_event, only: %i[show edit update destroy]
 
     # GET /events or /events.json
@@ -6,6 +7,15 @@ class EventsController < ApplicationController
         @events = Event.all
         # Passing list of event ids that the signed in user is registered for
         @attendance_records_registered = AttendanceRecord.where(member_id: get_id).to_ary.map(&:event_id)
+    end
+
+    # so members can't access page through direct link
+    def restrict_access
+        if !is_event_creater?
+            if !is_owner?
+                redirect_to(events_url, notice: 'You do not have access to this page!')
+            end
+        end
     end
 
     # GET /events/1 or /events/1.json

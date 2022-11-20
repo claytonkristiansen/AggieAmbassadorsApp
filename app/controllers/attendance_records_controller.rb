@@ -1,4 +1,12 @@
 class AttendanceRecordsController < ApplicationController
+    before_action :restrict_access, only: %i[index show delete destroy edit new]
+
+    # so members can't access page through direct link
+    def restrict_access
+        if !is_owner?
+            redirect_to('/', notice: 'You do not have access to this page!')
+        end
+    end
     def index
         redirect_to(new_member_session_path, notice: 'You are not authorized.') unless is_owner?
         @attendance_records = AttendanceRecord.all

@@ -1,6 +1,14 @@
 class MembersController < ApplicationController
     skip_before_action :authenticate_member!, only: %i[new create]
+    before_action :restrict_access, only: %i[new create update delete destroy show edit]
     before_action :set_member, only: %i[show edit update destroy]
+
+
+    def restrict_access
+        if !is_owner?
+            redirect_to('/', notice: 'You do not have access to this page!')
+        end
+    end
 
     # GET /members or /members.json
     def index

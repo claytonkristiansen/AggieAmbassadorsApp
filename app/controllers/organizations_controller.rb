@@ -2,7 +2,14 @@
 
 class OrganizationsController < ApplicationController
     skip_before_action :authenticate_member!, only: %i[index show]
+    before_action :restrict_access, only: %i[new edit create update delete destroy]
     before_action :set_organization, only: %i[show edit update destroy]
+
+    def restrict_access
+        if !is_owner?
+            redirect_to(organizations_url, notice: 'You do not have access to this page!')
+        end
+    end
 
     # GET /organizations or /organizations.json
     def index
