@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'about' => 'pages#about'
+
   resources :attendance_records do
     member do
       get :delete
