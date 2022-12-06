@@ -73,6 +73,7 @@ The application can be seen using a browser and navigating to http://localhost:3
 ## Environmental Variables/Files ##
 
 ** The following environment variables are required and have values unique to the customer
+
 Google_oauth_client_id
 Google_oauth_client_secret
 email_username
@@ -88,7 +89,7 @@ Then follow the instructions [here](https://devcenter.heroku.com/articles/github
 
 ## CI/CD ##
 
-
+We set up three basic branches called “dev”, “test”, and “main”. For each user story we would create a new temporary branch with the user story ID. When finished, this branch would first be tested, and then merged into the dev branch. If the tests passed here, it would then be merged into the test branch. Again, if all the tests passed here, and the test website functioned, it would be merged into the main branch where it would be deployed automatically to production. 
 
 
 ## Support ##
