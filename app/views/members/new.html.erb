@@ -1,5 +1,17 @@
-<h1>Create Account</h1>
-
-<%= render 'form_new', member: @member %>
-
-<%= link_to 'Back', root_path %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <h1>Create Account</h1>
+        </section>
+        <section>
+          <%= render 'form_new', member: @member %>
+        </section>
+        <section>
+          <%= link_to 'Back', root_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

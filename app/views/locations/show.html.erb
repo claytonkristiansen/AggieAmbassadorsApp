@@ -1,23 +1,34 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
-<p>
-  <strong>Type:</strong>
-  <%= @location.type %>
-</p>
-<p>
-  <strong>Instructions:</strong>
-  <%= @location.instructions %>
-</p>
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <p>
+            <strong>Name:</strong>
+            <%= @location.name %>
+          </p>
+          <p>
+            <strong>Description:</strong>
+            <%= @location.description %>
+          </p>
+          <p>
+            <strong>Type:</strong>
+            <%= @location.type %>
+          </p>
+          <p>
+            <strong>Instructions:</strong>
+            <%= @location.instructions %>
+          </p>
+          <p>
+            <strong>Address:</strong>
+            <%= @location.address %>
+          </p>
+        </section>
+        <section>
+          <%= link_to 'Edit', edit_location_path(@location) %> |
+          <%= link_to 'Back', locations_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

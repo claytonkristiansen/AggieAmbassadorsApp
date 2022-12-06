@@ -15,3 +15,6 @@ html:
 	cd ./app/views
 	which htmlbeautifier
 	find . -type f -name '*.html.erb' -exec htmlbeautifier {} ';' -exec ls {} ';'
+
+rubocop:
+	bundle exec rubocop --autocorrect

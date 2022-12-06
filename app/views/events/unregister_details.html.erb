@@ -1,3 +1,14 @@
-<h1>Are you sure you want to unregister?</h1>
-
-<%= link_to 'Confirm', unregister_event_path(event_id: params[:id]) %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <h1>Are you sure you want to unregister?</h1>
+        </section>
+        <section>
+          <%= link_to 'Confirm', unregister_event_path(event_id: params[:id]) %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
