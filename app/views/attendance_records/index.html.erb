@@ -7,7 +7,7 @@
         </section>
         <section class="page-info">
           <h1>Attendance Records</h1>
-          <h5>View and edit attendance records</h5>
+          <h5>Manage member attendance history.</h5>
         </section>
         <section>
           <% @attendance_records.each do |attendance_record| %>
@@ -22,7 +22,6 @@
                     <% else %>
                       <%= event.title %>
                     <% end %>
-                  
                   </h4>
                   <p class="card-text text-dark text-truncate" style="margin-top: 10px;margin-bottom: 3px;"><i class="bi bi-clock-fill text-primary"></i>
                     Date: 
@@ -53,6 +52,9 @@
               </div>
             <% end %>
           <% end %>
+        </section>
+        <section>
+          <p>Attendance records are automatically generated when any member registers for an event.</p>
         </section>
       </div>
     </div>
