@@ -94,7 +94,7 @@ section.info-list div {
 /* Custom styles */
 
 /* Adds additional space below each section except the first under <main> */
-body main section:not(:first-child) {
+body main section {
   margin-bottom: 60px;
 }
 

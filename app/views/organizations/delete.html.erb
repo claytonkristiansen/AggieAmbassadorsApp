@@ -1,11 +1,18 @@
-<div Class="delete">
-    <h1>Destroy the Orgnization</h1>
-    <%= form_for(@organization, :method => 'delete') do |form| %>
-        <p>Are you sure?</p>
-        <p> <%= @organization.name %></p>
-
-        <div class="actions">
-            <%= form.submit("Delete")%>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div Class="delete">
+          <h1>Destroy the Orgnization</h1>
+          <%= form_for(@organization, :method => 'delete') do |form| %>
+            <p>Are you sure?</p>
+            <p> <%= @organization.name %></p>
+            <div class="actions">
+              <%= form.submit("Delete")%>
+            </div>
+          <%end%>
         </div>
-    <%end%>
-</div>
+      </div>
+    </div>
+  </div>
+</main>

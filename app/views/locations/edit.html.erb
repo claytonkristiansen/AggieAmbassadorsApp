@@ -1,6 +1,18 @@
-<h1>Editing Location</h1>
-
-<%= render 'form', location: @location %>
-
-<%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section>
+          <h1>Editing Location</h1>
+        </section>
+        <section>
+          <%= render 'form', location: @location %>
+        </section>
+        <section>
+          <%= link_to 'Show', @location %> |
+          <%= link_to 'Back', locations_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
