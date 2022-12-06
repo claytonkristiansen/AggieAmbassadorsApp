@@ -72,7 +72,12 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 ## Environmental Variables/Files ##
 
-** We do not currently require any environment variables to run this project.
+** The following environment variables are required and have values unique to the customer
+Google_oauth_client_id
+Google_oauth_client_secret
+email_username
+email_password
+
 
 ## Deployment ##
 
@@ -83,7 +88,8 @@ Then follow the instructions [here](https://devcenter.heroku.com/articles/github
 
 ## CI/CD ##
 
-TBD
+
+
 
 ## Support ##
 
