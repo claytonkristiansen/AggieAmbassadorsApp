@@ -31,7 +31,7 @@
               <ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.333333px, 45px, 0px); --bs-dropdown-border-radius: 0.675rem;" data-popper-placement="bottom-end">
                 <li><a class="dropdown-item" href="<%= member_path(id: get_id) %>"><i class="bi bi-person-lines-fill"></i>My Account</a></li>
                 <li><a class="dropdown-item" href="<%= edit_member_path(id: get_id) %>"><i class="bi bi-gear-fill"></i>Preferences</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-life-preserver"></i>Help</a></li>
+                <li><a class="dropdown-item" href="<%= help_path %>"><i class="bi bi-life-preserver"></i>Help with app</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="<%= destroy_member_session_path %>"><i class="bi bi-box-arrow-right"></i>Sign out</a></li>
               </ul>
