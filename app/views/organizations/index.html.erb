@@ -13,7 +13,7 @@
       <div class="col-8">
         <section>
           <% @organizations.each do |organization| %>
-            <div class="card" style="margin-bottom:10px;">
+            <div class="card org-list-item" style="margin-bottom:10px;">
               <div class="card-body">
                 <%= link_to organization.name, organization %>
               </div>
