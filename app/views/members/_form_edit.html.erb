@@ -12,24 +12,28 @@
   <% if is_owner? %>
     <div class="field">
       <%= form.label :privilege_level %>
+      <br>
       <%= form.select(:privilege_level, options_for_select([['Member', 10], ['Event Creator', 20], ['Owner', 30]])) %>
     </div>
     <div class="field">
       <%= form.label :position_title %>
+      <br>
       <%= form.text_field :position_title %>
     </div>
   <% end%>
   <% if session[:user_email] == member.email %>
     <div class="field">
       <%= form.label :preferred_name %>
+      <br>
       <%= form.text_field :preferred_name%>
     </div>
     <div class="field">
       <%= form.label :send_emails %>
+      <br>
       <%= form.check_box :send_emails %>
     </div>
   <% end%>
   <div class="actions">
     <%= form.submit %>
   </div>
-<% end %>  
+<% end %>
