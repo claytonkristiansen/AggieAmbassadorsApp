@@ -1,6 +1,18 @@
-<h1>Editing Organization</h1>
-
-<%= render 'form', organization: @organization %>
-
-<%= link_to 'Show', @organization %> |
-<%= link_to 'Back', organizations_path %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <section class="page-info">
+          <h1>Editing Organization</h1>
+        </section>
+        <section>
+          <%= render 'form', organization: @organization %>
+        </section>
+        <section>
+          <%= link_to 'Show', @organization %> |
+          <%= link_to 'Back', organizations_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

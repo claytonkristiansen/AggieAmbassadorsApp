@@ -3,9 +3,6 @@
     <div class="row">
       <div class="col-8">
         <section>
-          <p id="notice"><%= notice %></p>
-        </section>
-        <section>
           <h1><%= @attendance_record.id %></h1>
         </section>
         <section>
@@ -21,6 +18,8 @@
             <strong>Confirmed Attending:</strong>
             <%= @attendance_record.confirmed_attending %>
           </p>
+        </section>
+        <section>
           <%= link_to 'Edit', edit_attendance_record_path(@attendance_record) %> |
           <%= link_to 'Back', attendance_records_path %>
         </section>

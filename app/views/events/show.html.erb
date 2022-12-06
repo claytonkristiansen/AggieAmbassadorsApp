@@ -3,32 +3,37 @@
     <div class="row">
       <div class="col-8">
         <section>
-          <p id="notice"><%= notice %></p>
-        </section>
-        <section>
           <h1><%= @event.title %></h1>
         </section>
+        <section class="info-list">
+          <div>
+            <h5>Date</h5>
+            <p><%= @event.event_date %></p>
+          </div>
+          <div>
+            <h5>Time</h5>
+            <p><%= @event.event_time %></p>
+          </div>
+          <div>
+            <h5>Location</h5>
+            <p>
+              <% if Location.where(id: @event.location_id).first == nil %>
+                Unspecified
+              <% else %>
+                <%= @location.name %>
+                <br>
+                <%= @location.address %>
+              <% end %>
+            </p>
+          </div>
+          <div>
+            <h5>Description</h5>
+            <p><%= @event.description %></p>
+          </div>
+        </section>
         <section>
-          <p>
-            <strong>Event date:</strong>
-            <%= @event.event_date %>
-          </p>
-          <p>
-            <strong>Event time:</strong>
-            <%= @event.event_time %>
-          </p>
-          <p>
-            <strong>Location:</strong>
-            <%= @location.name %>
-            <br>
-            <%= @location.address %>
-          </p>
-          <p>
-            <strong>Description:</strong>
-            <%= @event.description %>
-          </p>
-          <%= link_to 'Edit', edit_event_path(@event) %> |
-          <%= link_to 'Back', events_path %>
+          <a class="btn btn-primary larger-btn" href="<%= edit_event_path(@event) %>" role="button">Edit</a>
+          <a class="btn btn-primary larger-btn" href="<%= events_path %>" role="button">Back</a>
         </section>
       </div>
     </div>

@@ -1,22 +1,19 @@
 <%= form_with(model: attendance_record) do |form| %>
-
   <div class="field">
     <%= form.label :member_id %>
+    <br>
     <%= form.text_field :member_id %>
   </div>
-
   <div class="field">
     <%= form.label :event_id %>
+    <br>
     <%= form.text_field :event_id %>
   </div>
-
   <div class="field">
     <%= form.label :confirmed_attending %>
+    <br>
     <%= form.text_field :confirmed_attending %>
   </div>
-
-  
-
   <div class="actions">
     <%= form.submit %>
   </div>
