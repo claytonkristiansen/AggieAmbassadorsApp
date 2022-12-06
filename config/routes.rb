@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   get 'about' => 'pages#about'
+  get 'help' => 'pages#help'
 
   resources :attendance_records do
     member do
