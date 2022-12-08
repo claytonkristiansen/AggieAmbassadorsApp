@@ -28,7 +28,7 @@ class MemberMailer < ApplicationMailer
         members = Member.where(send_emails: true)
         members.each do |member|
             @member = member
-            mail(to: @member.email, subject: "Don't Forget To Attend An Event") if AttendanceRecord.where(member_id: @member.id, attended: true).where('created_at >= ?', check_date).empty?
+            mail(to: @member.email, subject: "Don't Forget To Attend An Event") if AttendanceRecord.where(member_id: @member.id).where('created_at >= ?', check_date).empty?
         end
     end
 end
