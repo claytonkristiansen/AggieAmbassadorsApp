@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col-8">
         <section>
-          <p id="notice"><%= notice %></p>
-        </section>
-        <section>
           <h1 style="font-size: 64px;">Welcome, <span class="emph-statement">Aggie Ambassador</span>.</h1>
         </section>
         <section>
           <p>You're signed in. You can view and register for events to meet your membership requirement, edit communication details, and more.</p>
           <p>You can view your profile details by clicking the icon in the menu.</p>
+        </section>
+        <section>
+          <p>Visit the <a href="<%= help_path %>">Getting Started</a> page for more information about how to use this site.</p>
         </section>
         <section>
           <a class="btn btn-primary mb-3 larger-btn" href="<%= destroy_member_session_path %>" role="button">Sign out</a>

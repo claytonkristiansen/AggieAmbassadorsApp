@@ -59,6 +59,10 @@ main p {
   font-size: 1.15rem;
 }
 
+section.info-list div {
+  margin-bottom: 40px;
+}
+
 /* End of generic overrides */
 
 /* Header section of some pages */
@@ -90,7 +94,7 @@ main p {
 /* Custom styles */
 
 /* Adds additional space below each section except the first under <main> */
-body main section:not(:first-child) {
+body main section {
   margin-bottom: 60px;
 }
 

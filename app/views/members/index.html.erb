@@ -2,25 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <section>
-          <p id="notice"><%= notice %></p>
-        </section>
         <section class="page-info">
-          <h1>Member List</h1>
-          <h5>This list shows all members including administrators with registered accounts.</h5>
+          <h1>Manage Members</h1>
+          <h5>Manage registered members including administrators.</h5>
         </section>
-        
-        <section class="download-excel">
-          <% if is_owner? %>
-            <%= 
-              link_to 'Download attandance record as an Excel file',
-              members_path(format: :xlsx)
-            %>
-         <% end %>
-        </section>
-        
+        <% if is_owner? %>
+          <section class="download-excel">
+            <h3>Download Attendance</h3>
+            <p>Export the full attendance history of all members.</p>
+            <a class="btn btn-primary larger-btn" href="<%= members_path(format: :xlsx) %>" role="button">Download CSV<i class="bi bi-download" style="margin-left:10px;"></i></a>
+          </section>
+        <% end %>
         <section class="member-list">
-          <div class="row">
+          <h3>Member List</h3>
+          <p>This list contains all registered members. Click one to view details, edit, or delete.</p>
+          <div class="row" style="margin-top:25px;">
             <div class="col">
               <% @members.each do |member| %>
                 <a href="<%= member_path(member) %>">
